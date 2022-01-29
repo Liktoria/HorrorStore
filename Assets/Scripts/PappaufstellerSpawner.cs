@@ -6,7 +6,7 @@ public class PappaufstellerSpawner : MonoBehaviour
 {
 
 
-    public float timebetween = 20;
+    public float timeToSpawn = 20;
     public GameObject pappaufsteller;
     public Transform spawnPoint;
     public bool lightIsOn = false;
@@ -21,7 +21,12 @@ public class PappaufstellerSpawner : MonoBehaviour
         gameManager.LightSwitched += ToggleLight;
     }
 
-    private void FixedUpdate()
+    private void OnDestroy()
+    {
+        gameManager.LightSwitched -= ToggleLight;
+    }
+
+    private void Update()
     {
         intervallSpawn();
     }
@@ -29,30 +34,37 @@ public class PappaufstellerSpawner : MonoBehaviour
     private void intervallSpawn()
     {
         float currentTime = Time.realtimeSinceStartup;
-        if ((currentTime - timebetween) > lastTime && !lightIsOn)
+        if ((currentTime - timeToSpawn) > lastTime && !lightIsOn)
         {
+            lastTime = currentTime;
             Quaternion rotation = spawnPoint.parent.transform.rotation;
             rotation.y = rotation.y + 90;
-            spawnPappaufsteller(pappaufsteller, spawnPoint.position, rotation);
-            lastTime = currentTime;
+            GameObject pappaufstellerObject = spawnPappaufsteller(pappaufsteller, spawnPoint.position, rotation);
+
+            PappaufstellerDespawn script = pappaufstellerObject.GetComponent<PappaufstellerDespawn>();
+            script.room = gameManager.currentArea.correspondingRoom;
+            script.playerTransform = spawnPoint.parent.transform;
+
+
         }
     }
 
-    static void spawnPappaufsteller(GameObject prefab, Transform tPosition)
+    static GameObject spawnPappaufsteller(GameObject prefab, Transform tPosition)
     {
         Vector3 position = tPosition.position;
         position.y = 0.5f;
         Quaternion rotation = tPosition.rotation;
-        spawnPappaufsteller(prefab, position, rotation);
+        return spawnPappaufsteller(prefab, position, rotation);
     }
 
-    static void spawnPappaufsteller(GameObject prefab, Vector3 tPosition, Quaternion tRotation)
+    static GameObject spawnPappaufsteller(GameObject prefab, Vector3 tPosition, Quaternion tRotation)
     {
         Debug.Log("Spawn");
         Vector3 position = tPosition;
         position.y = 0.5f;
         Quaternion rotation = tRotation;
-        Instantiate(prefab, position, rotation);
+        GameObject pappaufsteller = Instantiate(prefab, position, rotation);
+        return pappaufsteller;
     }
 
     private void ToggleLight(bool lightOn)
