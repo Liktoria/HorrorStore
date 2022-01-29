@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Image inventoryImage;
-    [SerializeField] private TMP_Text itemCounter;
     public List<AreaManager> areas;
     [HideInInspector] public AreaManager currentArea;
     public event Action<bool, Room> LightSwitched;
@@ -23,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(gameManager == null)
+        if (gameManager == null)
         {
             gameManager = this;
         }
@@ -35,56 +33,59 @@ public class GameManager : MonoBehaviour
         else
         {
             throw new UnityException("Es muss mindestens eine Area im Gamemanager konfiguriert sein.");
-        }        
-    }  
-    
+        }
+    }
+
     public void SwitchLight(bool lightOn)
     {
         currentArea.lightOn = lightOn;
         Debug.Log("Setting light to " + lightOn + " in area " + currentArea.correspondingRoom);
         LightSwitched?.Invoke(lightOn, currentArea.correspondingRoom);
-    }  
-    
+    }
+
     public void Collect(Collectible collectible)
     {
         currentArea.collectiblesCollected++;
-        if(currentArea.collectiblesCollected == 1)
+        if (currentArea.collectiblesCollected == 1)
         {
-            //Add new inventory image
-            inventoryImage.sprite = collectible.inventoryIcon;            
+            currentArea.UIElement3D.SetActive(true);
+            currentArea.itemAmountText.text = string.Empty;
         }
-        else if(currentArea.collectiblesCollected > 1)
+        else if (currentArea.collectiblesCollected > 1)
         {
-            itemCounter.text = string.Empty + currentArea.collectiblesCollected;
+            currentArea.itemAmountText.text = string.Empty + currentArea.collectiblesCollected;
         }
     }
 
-    private void UseCollectibles()
+    private void UseCollectibles(Generator generator)
     {
-        if(!currentArea.lightOn)
+        if (!currentArea.lightOn)
         {
-            currentArea.collectiblesCollected = 0;
-            currentArea.collectiblesNeeded = 0;
-            itemCounter.text = string.Empty;
-            inventoryImage.sprite = null;
-            SwitchLight(true);
-        }        
+            if (currentArea.collectiblesCollected > 0)
+            {
+                generator.numberOfAddedParts += currentArea.collectiblesCollected;
+                currentArea.collectiblesCollected = 0;
+                currentArea.itemAmountText.text = string.Empty;
+                currentArea.UIElement3D.SetActive(false);
+                Debug.Log("Generator now has " + generator.numberOfAddedParts + " parts out of " + generator.numberOfPartsNeeded);
+                if (generator.numberOfAddedParts >= generator.numberOfPartsNeeded)
+                {
+                    SwitchLight(true);
+                }
+            }
+            else
+            {
+                //You didn't collect anything that fits in here -> useless clicking sound
+            }
+        }
     }
 
     public void TryUseGenerator(Generator generator)
     {
-        if(generator.correspondingRoom == currentArea.correspondingRoom)
+        if (generator.correspondingRoom == currentArea.correspondingRoom)
         {
-            if(currentArea.collectiblesCollected >= currentArea.collectiblesNeeded)
-            {
-                UseCollectibles();
-                Debug.Log("Collectibles should have been used");
-            }
-            else
-            {
-                //Nothing happens
-                Debug.Log("Not enough collectibles");
-            }
+            UseCollectibles(generator);
+            Debug.Log("Collectibles should have been used");
         }
         else
         {
