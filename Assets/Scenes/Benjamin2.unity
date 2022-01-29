@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 9c28ec1e7fe80714eb3f572293cceeb6, type: 2}
 --- !u!1 &1144526
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,8 +169,8 @@ GameObject:
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &17396758
 Transform:
@@ -395,8 +395,8 @@ GameObject:
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &204797343
 BoxCollider:
@@ -675,8 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: 08e901469578ede4c8ba3d6389344652, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
 --- !u!1 &309440384
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b3e0712bf625d4b878f943bc752875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryImage: {fileID: 252969464}
 --- !u!1 &320757069
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,8 +910,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &443198787
 BoxCollider:
@@ -1137,7 +1135,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 69
+  m_StaticEditorFlags: 4294967263
   m_IsActive: 1
 --- !u!4 &463257568
 Transform:
@@ -1395,7 +1393,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 69
+  m_StaticEditorFlags: 4294967263
   m_IsActive: 1
 --- !u!4 &653903258
 Transform:
@@ -1586,8 +1584,8 @@ GameObject:
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &734161544
 Transform:
@@ -1683,7 +1681,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &767792598
 MeshCollider:
@@ -1774,10 +1772,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b62a908c2d8f3c4291ee87fcfb9bb99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryImage: {fileID: 0}
+  itemCounter: {fileID: 0}
   areas:
   - lightOn: 1
+    collectiblesCollected: 0
+    collectiblesNeeded: 0
+    correspondingRoom: 0
+    oswaldSpawnAllowed: 0
   currentArea:
     lightOn: 0
+    collectiblesCollected: 0
+    collectiblesNeeded: 0
+    correspondingRoom: 0
+    oswaldSpawnAllowed: 0
+  collectedItemsRoom1: 0
+  neededItemsRoom1: 0
+  collectedItemsRoom2: 0
+  neededItemsRoom2: 0
+  collectedItemsRoom3: 0
+  neededItemsRoom3: 0
 --- !u!1 &789262972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,8 +2002,8 @@ GameObject:
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 69
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 77
   m_IsActive: 1
 --- !u!4 &883883984
 Transform:
@@ -2272,12 +2286,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 989227914}
+  - component: {fileID: 989227915}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967263
   m_IsActive: 1
 --- !u!4 &989227914
 Transform:
@@ -2297,6 +2312,47 @@ Transform:
   m_Father: {fileID: 2130542385}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &989227915
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989227913}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1033304134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,7 +2370,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 69
+  m_StaticEditorFlags: 4294967263
   m_IsActive: 1
 --- !u!4 &1033304135
 Transform:
@@ -2651,8 +2707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: 9feaa3be6957e284da5f2cd48a50e8bd, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
 --- !u!1 &1123457849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,8 +2824,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1130670381
 Transform:
@@ -2898,8 +2953,8 @@ GameObject:
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1152022037
 Transform:
@@ -2993,8 +3048,8 @@ GameObject:
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1173422304
 Transform:
@@ -3348,8 +3403,8 @@ GameObject:
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1217601721
 BoxCollider:
@@ -3444,7 +3499,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 69
+  m_StaticEditorFlags: 4294967263
   m_IsActive: 1
 --- !u!4 &1255234591
 Transform:
@@ -3608,8 +3663,8 @@ GameObject:
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1283916806
 Transform:
@@ -3908,8 +3963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: bb858f78a69e23448827fb0760c2e21c, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
 --- !u!1 &1366131676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3926,8 +3980,8 @@ GameObject:
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1366131677
 Transform:
@@ -4179,8 +4233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: c328235aa4484504aad7dc11df008c0e, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
 --- !u!1 &1499188997
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,8 +4371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5c2695e4715974a825a8ef4823d845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timebetween: 20
-  pappaufsteller: {fileID: 5863346579410370686, guid: a829c11e57b9e1945925a09b3e832060, type: 3}
+  timeToSpawn: 20
+  pappaufsteller: {fileID: 2950926180601264789, guid: dda869a3f4e7f8f4388ae418e87ccdb4, type: 3}
   spawnPoint: {fileID: 644465934}
   lightIsOn: 0
 --- !u!1 &1529709645
@@ -4530,8 +4583,8 @@ GameObject:
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1617933829
 Transform:
@@ -4771,8 +4824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: c8a2a612d2c29fb43963c01d11262d83, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
 --- !u!1 &1722659902
 GameObject:
   m_ObjectHideFlags: 0
@@ -4886,8 +4938,8 @@ GameObject:
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1730627726
 Transform:
@@ -5091,8 +5143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: d0716ea53319a4649a6e6a1b7c812e54, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
 --- !u!1 &1787324232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,8 +5257,8 @@ GameObject:
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1815370590
 Transform:
@@ -5492,8 +5543,8 @@ GameObject:
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2038273981
 Transform:
@@ -5684,8 +5735,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2112894459
 Transform:

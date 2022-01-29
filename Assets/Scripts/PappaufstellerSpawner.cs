@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PappaufstellerSpawner : MonoBehaviour
 {
@@ -28,13 +29,13 @@ public class PappaufstellerSpawner : MonoBehaviour
 
     private void Update()
     {
-        intervallSpawn();
+            intervallSpawn();
     }
 
     private void intervallSpawn()
     {
         float currentTime = Time.realtimeSinceStartup;
-        if ((currentTime - timeToSpawn) > lastTime && !lightIsOn)
+        if ((currentTime - timeToSpawn) > lastTime && !lightIsOn && DestinationOk(spawnPoint.position))
         {
             lastTime = currentTime;
             Quaternion rotation = spawnPoint.parent.transform.rotation;
@@ -47,6 +48,16 @@ public class PappaufstellerSpawner : MonoBehaviour
 
 
         }
+    }
+
+    private bool DestinationOk(Vector3 position)
+    {
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(position, out hit, 1f, NavMesh.AllAreas))
+        {
+            return true;
+        }
+        return false;
     }
 
     static GameObject spawnPappaufsteller(GameObject prefab, Transform tPosition)
