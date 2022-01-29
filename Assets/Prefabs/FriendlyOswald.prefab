@@ -55,6 +55,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7503885888234887308}
     m_Modifications:
+    - target: {fileID: 2871324348526958149, guid: 1cf920420650c9f4e90c9fe82e5ac5d2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f9ca56787adb44546bc1f6fa724bfe95, type: 2}
     - target: {fileID: 4004776029326339370, guid: 1cf920420650c9f4e90c9fe82e5ac5d2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -117,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4384256676825315216, guid: 1cf920420650c9f4e90c9fe82e5ac5d2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf920420650c9f4e90c9fe82e5ac5d2, type: 3}
@@ -215,6 +219,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c0632580d1ad0cf44a0a45eea318b195, type: 3}
       propertyPath: m_Name
       value: Oswald_Good
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c0632580d1ad0cf44a0a45eea318b195, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0632580d1ad0cf44a0a45eea318b195, type: 3}
