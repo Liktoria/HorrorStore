@@ -48,6 +48,7 @@ public class PickingUp : MonoBehaviour
     {
         if(other.gameObject.tag == "Interactable")
         {
+            Debug.Log("Found " + other.gameObject.name);
             if (!detectedInteractables.Contains(other.gameObject))
             {
                 detectedInteractables.Add(other.gameObject);
