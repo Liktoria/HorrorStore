@@ -10,6 +10,7 @@ public class PappaufstellerDespawn : MonoBehaviour
     public int angleFrom = 128;
     public int angleTo = 132;
     public float maxDistance = 10;
+    public float eventProbability = 0.1f;
 
     private GameManager gameManager;
 
@@ -36,12 +37,12 @@ public class PappaufstellerDespawn : MonoBehaviour
 
     private void MaybeDespawn()
     {
-        int maybeRemove = Random.Range(0, 2);
+        float maybeRemove = Random.Range(0f, 1f);
         float angle = Vector3.Angle(playerTransform.forward, playerTransform.position - this.transform.position);
         float distance = Vector3.Distance(playerTransform.position, this.transform.position);
 
         // Debug.Log(angle + " "+ distance + " " + maybeRemove + "  " + (angle > angleFrom && angle < angleTo && maybeRemove == 1 && distance > maxDistance));
-        if (angle > angleFrom && angle < angleTo && maybeRemove == 1 && distance > maxDistance)
+        if (angle > angleFrom && angle < angleTo && maybeRemove < eventProbability && distance > maxDistance)
         {
             Die();
         }
