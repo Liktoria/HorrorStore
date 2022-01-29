@@ -5,6 +5,6 @@ using UnityEngine;
 public enum InteractableType
 {
     AXE,
-    PÖMPEL,
+    POEMPEL,
     NONE
 }
