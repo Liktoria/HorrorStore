@@ -49,7 +49,7 @@ public class PappaufstellerDespawn : MonoBehaviour
 
     private void ToggleLight(bool lightOn)
     {
-        if(room == gameManager.currentArea.room)
+        if(room == gameManager.currentArea.correspondingRoom)
         {
             Die();
         }

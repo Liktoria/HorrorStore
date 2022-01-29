@@ -6,6 +6,8 @@ using UnityEngine;
 public class AreaManager
 {
     public bool lightOn = false;
-    public Room room;
+    public int collectiblesCollected = 0;
+    public int collectiblesNeeded;
+    public Room correspondingRoom;
 }
 

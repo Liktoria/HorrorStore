@@ -42,7 +42,7 @@ public class PappaufstellerSpawner : MonoBehaviour
             GameObject pappaufstellerObject = spawnPappaufsteller(pappaufsteller, spawnPoint.position, rotation);
 
             PappaufstellerDespawn script = pappaufstellerObject.GetComponent<PappaufstellerDespawn>();
-            script.room = gameManager.currentArea.room;
+            script.room = gameManager.currentArea.correspondingRoom;
             script.playerTransform = spawnPoint.parent.transform;
 
 

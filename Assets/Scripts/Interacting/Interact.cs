@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Interact : MonoBehaviour
 {
-    [SerializeField] private Image inventoryImage;
     private List<GameObject> detectedInteractables = new List<GameObject>();
     private float distanceToInteractable;
     private float smallestDistanceToInteractable;
@@ -63,7 +62,7 @@ public class Interact : MonoBehaviour
         Interactable currentInteractable = interactable.GetComponent<Interactable>();
         if (currentInteractable is Generator generator)
         {
-            //Check collected items
+            gameManager.TryUseGenerator(generator);
         }
         else if (currentInteractable is Box box)
         {
@@ -71,8 +70,8 @@ public class Interact : MonoBehaviour
         }
         else if (currentInteractable is Collectible collectible)
         {
-            inventoryImage.sprite = collectible.inventoryIcon;
             //Add collected item to game manager
+            gameManager.Collect(collectible);
             Destroy(interactable);
             detectedInteractables.RemoveAt(indexOfClosestInteractable);
             indexOfClosestInteractable = 0;
