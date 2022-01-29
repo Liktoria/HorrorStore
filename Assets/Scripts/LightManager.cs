@@ -31,11 +31,15 @@ public class LightManager : MonoBehaviour
             {
                 StartCoroutine(LightFlicker());
                 lightMat.EnableKeyword("_EMISSION");
+                RenderSettings.ambientIntensity = 1.5f;
+                RenderSettings.reflectionIntensity = 0.5f;
             }
             else
             {
                 light.enabled = false;
                 lightMat.DisableKeyword("_EMISSION");
+                RenderSettings.ambientIntensity = 0.5f;
+                RenderSettings.reflectionIntensity = 0.2f;
             }
         }   
         else if(currentRoom == Room.MAINTENANCE_ROOM)
@@ -45,11 +49,15 @@ public class LightManager : MonoBehaviour
             {
                 StartCoroutine(LightFlicker());
                 lightMat.EnableKeyword("_EMISSION");
+                RenderSettings.ambientIntensity = 1.5f;
+                RenderSettings.reflectionIntensity = 0.5f;
             }
             else
             {
                 light.enabled = false;
                 lightMat.DisableKeyword("_EMISSION");
+                RenderSettings.ambientIntensity = 0.5f;
+                RenderSettings.reflectionIntensity = 0.2f;
             }
         }
     }
