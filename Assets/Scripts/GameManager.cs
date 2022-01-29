@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> openBoxes = new List<GameObject>();
+    [SerializeField] private GameObject openBox;
+    [SerializeField] private GameObject collectible;
     public List<AreaManager> areas;
     [HideInInspector] public AreaManager currentArea;
     public event Action<bool, Room> LightSwitched;    
@@ -94,10 +95,14 @@ public class GameManager : MonoBehaviour
         {
             //Open box
             box.open = true;
-            int randomBoxIndex = UnityEngine.Random.Range(0, openBoxes.Count);
-            GameObject newBox = Instantiate(openBoxes[randomBoxIndex], box.transform.position, box.transform.rotation, box.transform.parent);
-            newBox.SetActive(true);
+            bool hasCollectible = box.hasCollectible;
+            Transform spawnLocation = box.collectibleSpawnLocation;
+            GameObject newBox = Instantiate(openBox, box.transform.position, box.transform.rotation, box.transform.parent);
+            newBox.SetActive(true);            
             Destroy(box.gameObject);
+            GameObject spawnedCollectible = Instantiate(collectible, spawnLocation.position, spawnLocation.rotation);
+            spawnedCollectible.SetActive(true);
+            spawnedCollectible.GetComponent<Rigidbody>().AddForce(Vector3.up * 2);
         }
         else
         {
