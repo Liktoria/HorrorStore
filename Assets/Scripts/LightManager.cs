@@ -30,16 +30,18 @@ public class LightManager : MonoBehaviour
             if (lightOn)
             {
                 StartCoroutine(LightFlicker());
+                StartCoroutine(LightSwitchSmooth(0.5f, 1.5f, 2));
                 lightMat.EnableKeyword("_EMISSION");
-                RenderSettings.ambientIntensity = 1.5f;
-                RenderSettings.reflectionIntensity = 0.5f;
+                //RenderSettings.ambientIntensity = 1.5f;
+                //RenderSettings.reflectionIntensity = 0.5f;
             }
             else
             {
                 light.enabled = false;
                 lightMat.DisableKeyword("_EMISSION");
-                RenderSettings.ambientIntensity = 0.5f;
-                RenderSettings.reflectionIntensity = 0.2f;
+                StartCoroutine(LightSwitchSmooth(1.5f, 0.5f, 2));
+                //RenderSettings.ambientIntensity = 0.5f;
+                //RenderSettings.reflectionIntensity = 0.2f;
             }
         }   
         else if(currentRoom == Room.MAINTENANCE_ROOM)
@@ -48,16 +50,18 @@ public class LightManager : MonoBehaviour
             if (lightOn)
             {
                 StartCoroutine(LightFlicker());
+                StartCoroutine(LightSwitchSmooth(0.5f, 1.5f, 2));
                 lightMat.EnableKeyword("_EMISSION");
-                RenderSettings.ambientIntensity = 1.5f;
-                RenderSettings.reflectionIntensity = 0.5f;
+                //RenderSettings.ambientIntensity = 1.5f;
+                //RenderSettings.reflectionIntensity = 0.5f;
             }
             else
             {
                 light.enabled = false;
                 lightMat.DisableKeyword("_EMISSION");
-                RenderSettings.ambientIntensity = 0.5f;
-                RenderSettings.reflectionIntensity = 0.2f;
+                StartCoroutine(LightSwitchSmooth(1.5f, 0.5f, 2));
+                //RenderSettings.ambientIntensity = 0.5f;
+                //RenderSettings.reflectionIntensity = 0.2f;
             }
         }
     }
@@ -75,5 +79,17 @@ public class LightManager : MonoBehaviour
                 light.enabled = false;
         }
         light.enabled = true;
+    }
+
+    IEnumerator LightSwitchSmooth(float startValue, float endValue, float duration)
+    {
+        float time = 0;
+
+        while(time < duration)
+        {
+            RenderSettings.ambientIntensity = Mathf.Lerp(startValue, endValue, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
     }
 }
