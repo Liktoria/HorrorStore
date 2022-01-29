@@ -69,6 +69,7 @@ public class Interact : MonoBehaviour
         {
             //Open Box and check for contents
             Debug.Log("Found a box, something should happen.");
+            detectedInteractables.Remove(box.gameObject);
             gameManager.OpenBox(box);
         }
         else if (currentInteractable is Collectible collectible)

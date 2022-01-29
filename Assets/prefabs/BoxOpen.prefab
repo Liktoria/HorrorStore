@@ -97,7 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correspondingRoom: 1
-  open: 0
+  open: 1
+  hasCollectible: 0
+  collectibleSpawnLocation: {fileID: 0}
 --- !u!54 &3302029697947604718
 Rigidbody:
   m_ObjectHideFlags: 0
