@@ -491,7 +491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &252969463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -672,11 +672,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 292470518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
+  m_Script: {fileID: 11500000, guid: 278c1a682d667bd408cc452f31af2f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correspondingRoom: 0
   inventoryIcon: {fileID: 21300000, guid: 08e901469578ede4c8ba3d6389344652, type: 3}
-  typeOfInteractable: 0
 --- !u!1 &309440384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,11 +2601,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1109853873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
+  m_Script: {fileID: 11500000, guid: 278c1a682d667bd408cc452f31af2f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: 9feaa3be6957e284da5f2cd48a50e8bd, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
+  inventoryIcon: {fileID: 21300000, guid: 08e901469578ede4c8ba3d6389344652, type: 3}
 --- !u!1 &1123457849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,7 +3106,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.97547174, g: 1, b: 0.9985133, a: 1}
   m_Intensity: 10
-  m_Range: 6
+  m_Range: 7
   m_SpotAngle: 26.279108
   m_InnerSpotAngle: 18.081182
   m_CookieSize: 10
@@ -3858,11 +3858,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364044534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
+  m_Script: {fileID: 11500000, guid: 278c1a682d667bd408cc452f31af2f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: bb858f78a69e23448827fb0760c2e21c, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
+  inventoryIcon: {fileID: 21300000, guid: 08e901469578ede4c8ba3d6389344652, type: 3}
 --- !u!1 &1366131676
 GameObject:
   m_ObjectHideFlags: 0
@@ -4129,11 +4129,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1384836792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
+  m_Script: {fileID: 11500000, guid: 278c1a682d667bd408cc452f31af2f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: c328235aa4484504aad7dc11df008c0e, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
+  inventoryIcon: {fileID: 21300000, guid: 08e901469578ede4c8ba3d6389344652, type: 3}
 --- !u!1 &1499188997
 GameObject:
   m_ObjectHideFlags: 0
@@ -4703,11 +4703,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629278560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
+  m_Script: {fileID: 11500000, guid: 278c1a682d667bd408cc452f31af2f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: c8a2a612d2c29fb43963c01d11262d83, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
+  inventoryIcon: {fileID: 21300000, guid: 08e901469578ede4c8ba3d6389344652, type: 3}
 --- !u!1 &1722659902
 GameObject:
   m_ObjectHideFlags: 0
@@ -5023,11 +5023,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1773223786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd283f4afc5a1d4cac4c52513b3048c, type: 3}
+  m_Script: {fileID: 11500000, guid: 278c1a682d667bd408cc452f31af2f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIcon: {fileID: 21300000, guid: d0716ea53319a4649a6e6a1b7c812e54, type: 3}
-  typeOfInteractable: 0
+  correspondingRoom: 0
+  inventoryIcon: {fileID: 21300000, guid: 08e901469578ede4c8ba3d6389344652, type: 3}
 --- !u!1 &1787324232
 GameObject:
   m_ObjectHideFlags: 0
