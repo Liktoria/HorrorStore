@@ -5,18 +5,19 @@ using UnityEngine;
 public class FriendlyOswald : MonoBehaviour
 {
 
-    public Material friendlyOswald;
-    public Material badOswald;
+    public GameObject friendlyOswald;
+    public GameObject badOswald;
+    public Room room;
 
     private GameManager gameManager;
-    private MeshRenderer visualBlock;
 
     void Start()
     {
         gameManager = GameManager.gameManager;
         gameManager.LightSwitched += lightSwitch;
-        visualBlock = this.gameObject.GetComponentInChildren<MeshRenderer>();
-        
+
+        AreaManager areaManager = gameManager.areas.Find(z => z.correspondingRoom == room);
+        ChangeOswald(areaManager.lightOn);
     }
 
     private void OnDestroy()
@@ -24,15 +25,25 @@ public class FriendlyOswald : MonoBehaviour
         gameManager.LightSwitched -= lightSwitch;
     }
 
-    private void lightSwitch(bool light) 
+    private void lightSwitch(bool light, Room room) 
+    {
+        if (gameManager.currentArea.correspondingRoom == room)
+        {
+            ChangeOswald(light);
+        }
+    }
+
+    private void ChangeOswald(bool light)
     {
         if (light)
         {
-            visualBlock.material = friendlyOswald;
-        } 
+            friendlyOswald.SetActive(true);
+            badOswald.SetActive(false);
+        }
         else
         {
-            visualBlock.material = badOswald;
+            friendlyOswald.SetActive(false);
+            badOswald.SetActive(true);
         }
     }
 
