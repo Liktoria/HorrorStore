@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text itemCounter;
     public List<AreaManager> areas;
     [HideInInspector] public AreaManager currentArea;
-    public event Action<bool> LightSwitched;
+    public event Action<bool, Room> LightSwitched;
     public int collectedItemsRoom1;
     public int neededItemsRoom1;
     public int collectedItemsRoom2;
@@ -35,13 +35,14 @@ public class GameManager : MonoBehaviour
         else
         {
             throw new UnityException("Es muss mindestens eine Area im Gamemanager konfiguriert sein.");
-        }
+        }        
     }  
     
     public void SwitchLight(bool lightOn)
     {
         currentArea.lightOn = lightOn;
-        LightSwitched?.Invoke(lightOn);
+        Debug.Log("Setting light to " + lightOn + " in area " + currentArea.correspondingRoom);
+        LightSwitched?.Invoke(lightOn, currentArea.correspondingRoom);
     }  
     
     public void Collect(Collectible collectible)
@@ -64,6 +65,8 @@ public class GameManager : MonoBehaviour
         {
             currentArea.collectiblesCollected = 0;
             currentArea.collectiblesNeeded = 0;
+            itemCounter.text = string.Empty;
+            inventoryImage.sprite = null;
             SwitchLight(true);
         }        
     }
@@ -75,10 +78,12 @@ public class GameManager : MonoBehaviour
             if(currentArea.collectiblesCollected >= currentArea.collectiblesNeeded)
             {
                 UseCollectibles();
+                Debug.Log("Collectibles should have been used");
             }
             else
             {
                 //Nothing happens
+                Debug.Log("Not enough collectibles");
             }
         }
         else

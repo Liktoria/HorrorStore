@@ -62,6 +62,7 @@ public class Interact : MonoBehaviour
         Interactable currentInteractable = interactable.GetComponent<Interactable>();
         if (currentInteractable is Generator generator)
         {
+            Debug.Log("Interacted with a generator.");
             gameManager.TryUseGenerator(generator);
         }
         else if (currentInteractable is Box box)

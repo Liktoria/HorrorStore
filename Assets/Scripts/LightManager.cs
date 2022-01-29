@@ -16,20 +16,21 @@ public class LightManager : MonoBehaviour
     {
         light = GetComponentInChildren<Light>();
         lightMat = GetComponentInChildren<Renderer>().material;
+        ToggleLight(false, Room.MAINTENANCE_ROOM);
         gameManager = GameManager.gameManager;
         gameManager.LightSwitched += ToggleLight;
     }
 
-    private void ToggleLight(bool lightOn)
+    private void ToggleLight(bool lightOn, Room currentRoom)
     {
         lightIsOn = lightOn;
 
-        if(lightIsOn)
+        if(lightOn)
         {
             StartCoroutine(LightFlicker());
             lightMat.EnableKeyword("_EMISSION");
         } 
-        else if(!lightIsOn)
+        else
         {
             light.enabled = false;
             lightMat.DisableKeyword("_EMISSION");
