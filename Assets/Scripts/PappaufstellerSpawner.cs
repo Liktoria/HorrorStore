@@ -10,17 +10,19 @@ public class PappaufstellerSpawner : MonoBehaviour
     public GameObject pappaufsteller;
     public Transform spawnPoint;
     public bool lightIsOn = false;
+    private GameManager gameManager;
 
     private float lastTime;
 
     private void Start()
     {
         lastTime = Time.realtimeSinceStartup;
+        gameManager = GameManager.gameManager;
+        gameManager.LightSwitched += ToggleLight;
     }
 
     private void FixedUpdate()
     {
-        lightIsOn = GameManager.gameManager.currentArea.lightOn;
         intervallSpawn();
     }
 
@@ -51,5 +53,10 @@ public class PappaufstellerSpawner : MonoBehaviour
         position.y = 0.5f;
         Quaternion rotation = tRotation;
         Instantiate(prefab, position, rotation);
+    }
+
+    private void ToggleLight(bool lightOn)
+    {
+        lightIsOn = lightOn;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public List<AreaManager> areas;
     public AreaManager currentArea;
+    public event Action<bool> LightSwitched;
 
     public static GameManager gameManager;
 
@@ -24,5 +26,11 @@ public class GameManager : MonoBehaviour
         {
             throw new UnityException("Es muss mindestens eine Area im Gamemanager konfiguriert sein.");
         }
-    }    
+    }  
+    
+    public void SwitchLight(bool lightOn)
+    {
+        currentArea.lightOn = lightOn;
+        LightSwitched?.Invoke(lightOn);
+    }   
 }
