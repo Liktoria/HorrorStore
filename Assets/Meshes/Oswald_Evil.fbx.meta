@@ -3,7 +3,12 @@ guid: 1e1d4a7e787a1a24e81e91fe5aaa30bc
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OtterEvil
+    second: {fileID: 2100000, guid: 56cf6617fb4db7f4a91ac555c303924e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
