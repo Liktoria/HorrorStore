@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Box : Interactable
 {
-    
+    public bool open = false;
 }

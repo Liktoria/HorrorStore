@@ -11,10 +11,11 @@ public class MenuManager : MonoBehaviour
 
     private bool isGameActive = true;
     private bool isGameOver = false;
+    private int maxScore = 500;
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape) && !isGameOver)
         {
             TogglePause();
         }
@@ -39,18 +40,25 @@ public class MenuManager : MonoBehaviour
             pausePanel.SetActive(false);
             Time.timeScale = 1;
             player.GetComponent<PlayerMovement>().canMove = true;
+            player.GetComponentInChildren<Flashlight>().enabled = true;
         }
         else
         {
             pausePanel.SetActive(true);
             Time.timeScale = 0;
             player.GetComponent<PlayerMovement>().canMove = false;
+            player.GetComponentInChildren<Flashlight>().enabled = false;
         }
     }
 
     private void GameOver()
     {
         isGameOver = true;
-        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game over\n\n\nPress Enter to restart";
+        int highscore = Mathf.RoundToInt(maxScore - Time.timeSinceLevelLoad);
+        if (highscore < 0)
+            highscore = 0;
+        if (PlayerPrefs.GetInt("highscore", 0) < highscore)
+            PlayerPrefs.SetInt("highscore", highscore);
+        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + highscore + "\n\n\nGame over\n\n\nPress 'Enter' to restart";
     }
 }
