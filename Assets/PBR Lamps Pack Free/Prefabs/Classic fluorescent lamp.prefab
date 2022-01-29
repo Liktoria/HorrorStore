@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &172088
+--- !u!1 &4749173835337128440
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 469760}
-  - component: {fileID: 3305718}
-  - component: {fileID: 2319894}
-  - component: {fileID: 1627667700745631481}
+  - component: {fileID: 4749173835337483736}
+  - component: {fileID: 4749173835338253816}
+  - component: {fileID: 4749173835339384632}
   m_Layer: 0
   m_Name: Classic fluorescent lamp
   m_TagString: Untagged
@@ -19,36 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &469760
+--- !u!4 &4749173835337483736
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172088}
+  m_GameObject: {fileID: 4749173835337128440}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7827873, y: 3.394, z: -0.0733937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1103248498259899994}
+  - {fileID: 7500909099996497965}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!33 &3305718
+--- !u!33 &4749173835338253816
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172088}
+  m_GameObject: {fileID: 4749173835337128440}
   m_Mesh: {fileID: 4300000, guid: 27daeef49dd37a4468f613fd17bb7434, type: 3}
---- !u!23 &2319894
+--- !u!23 &4749173835339384632
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172088}
+  m_GameObject: {fileID: 4749173835337128440}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,19 +82,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1627667700745631481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d11661424789594cadf33ab64625405, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &3118166872719832724
+--- !u!1 &7500909099996497955
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,8 +90,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1103248498259899994}
-  - component: {fileID: 8152431020460451831}
+  - component: {fileID: 7500909099996497965}
+  - component: {fileID: 7500909099996497954}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -112,27 +99,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1103248498259899994
+--- !u!4 &7500909099996497965
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3118166872719832724}
+  m_GameObject: {fileID: 7500909099996497955}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 0.801, z: 0}
+  m_LocalPosition: {x: 0.027787328, y: 0.9330001, z: 0.0733937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 469760}
+  m_Father: {fileID: 4749173835337483736}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &8152431020460451831
+--- !u!108 &7500909099996497954
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3118166872719832724}
+  m_GameObject: {fileID: 7500909099996497955}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 2

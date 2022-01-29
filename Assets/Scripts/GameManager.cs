@@ -76,6 +76,10 @@ public class GameManager : MonoBehaviour
             {
                 UseCollectibles();
             }
+            else
+            {
+                //Nothing happens
+            }
         }
         else
         {

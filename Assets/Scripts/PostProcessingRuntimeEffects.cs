@@ -38,7 +38,12 @@ public class PostProcessingRuntimeEffects : MonoBehaviour
             else
                 gameManager.SwitchLight(true);
         }
-        
+    }
+
+    private void ToggleLight(bool lightOn)
+    {
+        lightIsOn = lightOn;
+
         if(lightIsOn)
         {
             bloom.intensity.value = bloomIntensity;
@@ -50,10 +55,5 @@ public class PostProcessingRuntimeEffects : MonoBehaviour
             filmGrain.intensity.value = 1f;
             vignette.intensity.value = vignetteIntensity;
         }
-    }
-
-    private void ToggleLight(bool lightOn)
-    {
-        lightIsOn = lightOn;
     }
 }

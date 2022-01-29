@@ -43,7 +43,7 @@ public class Interact : MonoBehaviour
             if (!detectedInteractables.Contains(other.gameObject))
             {
                 detectedInteractables.Add(other.gameObject);
-                Debug.Log("Added interactable to list.");
+                //Debug.Log("Added interactable to list.");
             }
         }
     }
@@ -53,7 +53,7 @@ public class Interact : MonoBehaviour
         if (other.gameObject.tag == "Interactable")
         {
             detectedInteractables.Remove(other.gameObject);
-            Debug.Log("Removed interactable from list.");
+            //Debug.Log("Removed interactable from list.");
         }
     }
 

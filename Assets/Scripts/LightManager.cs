@@ -5,6 +5,7 @@ using UnityEngine;
 public class LightManager : MonoBehaviour
 {
     private Light light;
+    private Material lightMat;
     private GameManager gameManager;
     private bool lightIsOn;
 
@@ -14,14 +15,9 @@ public class LightManager : MonoBehaviour
     void Start()
     {
         light = GetComponentInChildren<Light>();
+        lightMat = GetComponentInChildren<Renderer>().material;
         gameManager = GameManager.gameManager;
         gameManager.LightSwitched += ToggleLight;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void ToggleLight(bool lightOn)
@@ -29,9 +25,16 @@ public class LightManager : MonoBehaviour
         lightIsOn = lightOn;
 
         if(lightIsOn)
+        {
             StartCoroutine(LightFlicker());
+            lightMat.EnableKeyword("_EMISSION");
+        } 
         else if(!lightIsOn)
+        {
             light.enabled = false;
+            lightMat.DisableKeyword("_EMISSION");
+        }
+            
         
     }
 
@@ -40,7 +43,7 @@ public class LightManager : MonoBehaviour
         int flicker = Random.Range(1, 5);
         for(int i = 0; i < flicker; i++)
         {
-            flickerDelay = Random.Range(0.01f, 0.2f);
+            flickerDelay = Random.Range(0.05f, 0.2f);
             yield return new WaitForSeconds(flickerDelay);
             if(i % 2 == 0)
                 light.enabled = true;
