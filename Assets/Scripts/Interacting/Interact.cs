@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Interact : MonoBehaviour
 {
-    [SerializeField] private Image inventoryImage;
     private List<GameObject> detectedInteractables = new List<GameObject>();
     private float distanceToInteractable;
     private float smallestDistanceToInteractable;
@@ -63,32 +62,7 @@ public class Interact : MonoBehaviour
         Interactable currentInteractable = interactable.GetComponent<Interactable>();
         if (currentInteractable is Generator generator)
         {
-            int collectedItems = 0;
-            int neededItems = 0;
-            //Check collected items
-            switch (generator.correspondingRoom)
-            {
-                case Room.ROOM1:
-                    collectedItems = gameManager.collectedItemsRoom1;
-                    neededItems = gameManager.neededItemsRoom1;
-                    break;
-                case Room.ROOM2:
-                    collectedItems = gameManager.collectedItemsRoom2;
-                    neededItems = gameManager.neededItemsRoom2;
-                    break;
-                case Room.ROOM3:
-                    collectedItems = gameManager.collectedItemsRoom3;
-                    neededItems = gameManager.neededItemsRoom3;
-                    break;
-            }
-            if(collectedItems >= neededItems)
-            {
-                gameManager.UseCollectibles();
-            }
-            else
-            {
-                //Do nothing or switching sound that does nothing
-            }
+            gameManager.TryUseGenerator(generator);
         }
         else if (currentInteractable is Box box)
         {
@@ -96,8 +70,8 @@ public class Interact : MonoBehaviour
         }
         else if (currentInteractable is Collectible collectible)
         {
-            inventoryImage.sprite = collectible.inventoryIcon;
             //Add collected item to game manager
+            gameManager.Collect(collectible);
             Destroy(interactable);
             detectedInteractables.RemoveAt(indexOfClosestInteractable);
             indexOfClosestInteractable = 0;

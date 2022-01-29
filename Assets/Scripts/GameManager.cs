@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private Image inventoryImage;
+    [SerializeField] private TMP_Text itemCounter;
     public List<AreaManager> areas;
-    public AreaManager currentArea;
+    [HideInInspector] public AreaManager currentArea;
     public event Action<bool> LightSwitched;
     public int collectedItemsRoom1;
     public int neededItemsRoom1;
@@ -38,29 +42,44 @@ public class GameManager : MonoBehaviour
     {
         currentArea.lightOn = lightOn;
         LightSwitched?.Invoke(lightOn);
-    }   
-
-    public void UseCollectibles()
+    }  
+    
+    public void Collect(Collectible collectible)
     {
-        int roomNumber = areas.IndexOf(currentArea);
-        switch(roomNumber)
+        currentArea.collectiblesCollected++;
+        if(currentArea.collectiblesCollected == 1)
         {
-            case 0:
-                Debug.LogWarning("Using collectibles in the start area wasn't planned.");
-                return;                
-            case 1:
-                collectedItemsRoom1 = 0;
-                neededItemsRoom1 = 0;
-                break;
-            case 2:
-                collectedItemsRoom2 = 0;
-                neededItemsRoom2 = 0;
-                break;
-            case 3:
-                collectedItemsRoom3 = 0;
-                neededItemsRoom3 = 0;
-                break;
+            //Add new inventory image
+            inventoryImage.sprite = collectible.inventoryIcon;            
         }
-        SwitchLight(true);
+        else if(currentArea.collectiblesCollected > 1)
+        {
+            itemCounter.text = string.Empty + currentArea.collectiblesCollected;
+        }
+    }
+
+    private void UseCollectibles()
+    {
+        if(!currentArea.lightOn)
+        {
+            currentArea.collectiblesCollected = 0;
+            currentArea.collectiblesNeeded = 0;
+            SwitchLight(true);
+        }        
+    }
+
+    public void TryUseGenerator(Generator generator)
+    {
+        if(generator.correspondingRoom == currentArea.correspondingRoom)
+        {
+            if(currentArea.collectiblesCollected >= currentArea.collectiblesNeeded)
+            {
+                UseCollectibles();
+            }
+        }
+        else
+        {
+            Debug.LogError("Something went wrong. The room of the activated generator does not match the room of the current area.");
+        }
     }
 }
