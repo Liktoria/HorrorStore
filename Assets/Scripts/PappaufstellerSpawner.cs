@@ -78,7 +78,7 @@ public class PappaufstellerSpawner : MonoBehaviour
         return pappaufsteller;
     }
 
-    private void ToggleLight(bool lightOn)
+    private void ToggleLight(bool lightOn, Room currentRoom)
     {
         lightIsOn = lightOn;
     }

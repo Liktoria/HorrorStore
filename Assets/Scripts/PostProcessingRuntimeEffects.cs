@@ -23,7 +23,7 @@ public class PostProcessingRuntimeEffects : MonoBehaviour
         vol.profile.TryGet<Bloom>(out bloom);
         vol.profile.TryGet<FilmGrain>(out filmGrain);
         vol.profile.TryGet<Vignette>(out vignette);
-
+        ToggleLight(false, Room.MAINTENANCE_ROOM);
         gameManager = GameManager.gameManager;
         gameManager.LightSwitched += ToggleLight;
     }
@@ -40,11 +40,11 @@ public class PostProcessingRuntimeEffects : MonoBehaviour
         }
     }
 
-    private void ToggleLight(bool lightOn)
+    private void ToggleLight(bool lightOn, Room currentRoom)
     {
         lightIsOn = lightOn;
 
-        if(lightIsOn)
+        if(lightOn)
         {
             bloom.intensity.value = bloomIntensity;
             filmGrain.intensity.value = 0f;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightManager : MonoBehaviour
 {
+    [SerializeField] private Room room;
     private Light light;
     private Material lightMat;
     private GameManager gameManager;
@@ -16,26 +17,41 @@ public class LightManager : MonoBehaviour
     {
         light = GetComponentInChildren<Light>();
         lightMat = GetComponentInChildren<Renderer>().material;
+        ToggleLight(false, Room.MAINTENANCE_ROOM);
         gameManager = GameManager.gameManager;
         gameManager.LightSwitched += ToggleLight;
     }
 
-    private void ToggleLight(bool lightOn)
-    {
-        lightIsOn = lightOn;
-
-        if(lightIsOn)
+    private void ToggleLight(bool lightOn, Room currentRoom)
+    {       
+        if (currentRoom == room)
         {
-            StartCoroutine(LightFlicker());
-            lightMat.EnableKeyword("_EMISSION");
-        } 
-        else if(!lightIsOn)
+            lightIsOn = lightOn;
+            if (lightOn)
+            {
+                StartCoroutine(LightFlicker());
+                lightMat.EnableKeyword("_EMISSION");
+            }
+            else
+            {
+                light.enabled = false;
+                lightMat.DisableKeyword("_EMISSION");
+            }
+        }   
+        else if(currentRoom == Room.MAINTENANCE_ROOM)
         {
-            light.enabled = false;
-            lightMat.DisableKeyword("_EMISSION");
+            lightIsOn = lightOn;
+            if (lightOn)
+            {
+                StartCoroutine(LightFlicker());
+                lightMat.EnableKeyword("_EMISSION");
+            }
+            else
+            {
+                light.enabled = false;
+                lightMat.DisableKeyword("_EMISSION");
+            }
         }
-            
-        
     }
 
     IEnumerator LightFlicker()
