@@ -1361,6 +1361,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.015
       objectReference: {fileID: 0}
+    - target: {fileID: 7238914104191755460, guid: 777564ae62664824eb1fe95e99bc5ac0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456914264712743502, guid: 777564ae62664824eb1fe95e99bc5ac0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7503885888234887308, guid: 777564ae62664824eb1fe95e99bc5ac0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1853,25 +1861,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b62a908c2d8f3c4291ee87fcfb9bb99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryImage: {fileID: 0}
-  itemCounter: {fileID: 0}
   areas:
   - lightOn: 1
     collectiblesCollected: 0
     collectiblesNeeded: 0
     correspondingRoom: 0
     oswaldSpawnAllowed: 0
-  - lightOn: 0
+    UIElement3D: {fileID: 0}
+    itemAmountText: {fileID: 0}
+  - lightOn: 1
     collectiblesCollected: 0
     collectiblesNeeded: 0
     correspondingRoom: 1
     oswaldSpawnAllowed: 0
+    UIElement3D: {fileID: 0}
+    itemAmountText: {fileID: 0}
   currentArea:
     lightOn: 0
     collectiblesCollected: 0
     collectiblesNeeded: 0
     correspondingRoom: 0
     oswaldSpawnAllowed: 0
+    UIElement3D: {fileID: 0}
+    itemAmountText: {fileID: 0}
   collectedItemsRoom1: 0
   neededItemsRoom1: 0
   collectedItemsRoom2: 0
@@ -5518,7 +5530,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.9, g: 1, b: 0.9902301, a: 1}
   m_Intensity: 10
-  m_Range: 5
+  m_Range: 50
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
