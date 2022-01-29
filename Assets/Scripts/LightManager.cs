@@ -56,7 +56,7 @@ public class LightManager : MonoBehaviour
 
     IEnumerator LightFlicker()
     {
-        int flicker = Random.Range(1, 5);
+        int flicker = Random.Range(1, 10);
         for(int i = 0; i < flicker; i++)
         {
             flickerDelay = Random.Range(0.05f, 0.2f);

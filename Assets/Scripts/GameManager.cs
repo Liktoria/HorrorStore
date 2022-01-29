@@ -7,15 +7,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> openBoxes = new List<GameObject>();
     public List<AreaManager> areas;
     [HideInInspector] public AreaManager currentArea;
-    public event Action<bool, Room> LightSwitched;
-    public int collectedItemsRoom1;
-    public int neededItemsRoom1;
-    public int collectedItemsRoom2;
-    public int neededItemsRoom2;
-    public int collectedItemsRoom3;
-    public int neededItemsRoom3;
+    public event Action<bool, Room> LightSwitched;    
 
     public static GameManager gameManager;
 
@@ -90,6 +85,23 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogError("Something went wrong. The room of the activated generator does not match the room of the current area.");
+        }
+    }
+
+    public void OpenBox(Box box)
+    {
+        if(!box.open)
+        {
+            //Open box
+            box.open = true;
+            int randomBoxIndex = UnityEngine.Random.Range(0, openBoxes.Count);
+            GameObject newBox = Instantiate(openBoxes[randomBoxIndex], box.transform.position, box.transform.rotation, box.transform.parent);
+            newBox.SetActive(true);
+            Destroy(box.gameObject);
+        }
+        else
+        {
+            //Don't do anything
         }
     }
 }

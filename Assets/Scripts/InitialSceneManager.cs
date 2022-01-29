@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class InitialSceneManager : MonoBehaviour
 {
-    public Button startGameButton;
+    public TextMeshProUGUI highscoreText;
+    public GameObject initialTexts;
     public Slider loadingBar;
 
     private AsyncOperation loadingSceneOperation;
@@ -15,7 +17,7 @@ public class InitialSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startGameButton.onClick.AddListener(StartGameClicked);
+        highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("highscore", 0);
     }
 
     // Update is called once per frame
@@ -23,11 +25,13 @@ public class InitialSceneManager : MonoBehaviour
     {
         if (isLoadingScene)
             loadingBar.value = Mathf.Clamp01(loadingSceneOperation.progress / .9f);
+        if (Input.GetKeyUp(KeyCode.Return) && !isLoadingScene)
+            StartGame();
     }
 
-    private void StartGameClicked()
+    private void StartGame()
     {
-        startGameButton.gameObject.SetActive(false);
+        initialTexts.SetActive(false);
         loadingBar.gameObject.SetActive(true);
         isLoadingScene = true;
         loadingSceneOperation = SceneManager.LoadSceneAsync("MainScene");
