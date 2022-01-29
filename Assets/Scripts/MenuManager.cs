@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject player;
 
     private bool isGameActive = true;
+    private bool isGameOver = false;
 
     void Update()
     {
@@ -15,9 +18,19 @@ public class MenuManager : MonoBehaviour
         {
             TogglePause();
         }
+        else if (Input.GetKeyUp(KeyCode.O) && isGameActive)
+        {
+            TogglePause();
+            GameOver();
+        }
+        else if (Input.GetKeyUp(KeyCode.Return) && isGameOver)
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
-    void TogglePause()
+    private void TogglePause()
     {
         isGameActive = !isGameActive;
 
@@ -33,5 +46,11 @@ public class MenuManager : MonoBehaviour
             Time.timeScale = 0;
             player.GetComponent<PlayerMovement>().canMove = false;
         }
+    }
+
+    private void GameOver()
+    {
+        isGameOver = true;
+        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game over\n\n\nPress Enter to restart";
     }
 }
