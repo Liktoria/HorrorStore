@@ -21,6 +21,11 @@ public class PappaufstellerSpawner : MonoBehaviour
         gameManager.LightSwitched += ToggleLight;
     }
 
+    private void OnDestroy()
+    {
+        gameManager.LightSwitched -= ToggleLight;
+    }
+
     private void FixedUpdate()
     {
         intervallSpawn();
