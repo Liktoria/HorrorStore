@@ -63,7 +63,32 @@ public class Interact : MonoBehaviour
         Interactable currentInteractable = interactable.GetComponent<Interactable>();
         if (currentInteractable is Generator generator)
         {
+            int collectedItems = 0;
+            int neededItems = 0;
             //Check collected items
+            switch (generator.correspondingRoom)
+            {
+                case Room.ROOM1:
+                    collectedItems = gameManager.collectedItemsRoom1;
+                    neededItems = gameManager.neededItemsRoom1;
+                    break;
+                case Room.ROOM2:
+                    collectedItems = gameManager.collectedItemsRoom2;
+                    neededItems = gameManager.neededItemsRoom2;
+                    break;
+                case Room.ROOM3:
+                    collectedItems = gameManager.collectedItemsRoom3;
+                    neededItems = gameManager.neededItemsRoom3;
+                    break;
+            }
+            if(collectedItems >= neededItems)
+            {
+                gameManager.UseCollectibles();
+            }
+            else
+            {
+                //Do nothing or switching sound that does nothing
+            }
         }
         else if (currentInteractable is Box box)
         {
