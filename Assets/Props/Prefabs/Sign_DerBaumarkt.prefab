@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4171235099034222736}
   - component: {fileID: 2163913036518356058}
   m_Layer: 0
-  m_Name: Sign_Badezimmer
+  m_Name: Sign_DerBaumarkt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 57790a112e9a7cf48a16f30c8de65ca7, type: 2}
+  - {fileID: 2100000, guid: 5dfa29d37d102fb468f7e42fe8fb85d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
