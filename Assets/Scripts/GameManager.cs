@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         {
             if (currentArea.collectiblesCollected > 0)
             {
-                generator.numberOfAddedParts += currentArea.collectiblesCollected;
+                generator.AddFuses(currentArea.collectiblesCollected);
                 currentArea.collectiblesCollected = 0;
                 currentArea.itemAmountText.text = string.Empty;
                 currentArea.UIElement3D.SetActive(false);
@@ -97,16 +97,25 @@ public class GameManager : MonoBehaviour
             box.open = true;
             bool hasCollectible = box.hasCollectible;
             Transform spawnLocation = box.collectibleSpawnLocation;
-            GameObject newBox = Instantiate(openBox, box.transform.position, box.transform.rotation, box.transform.parent);
+            Vector3 forceDirection = box.forceDirection;
+            GameObject newBox = Instantiate(openBox, box.transform.position, openBox.transform.rotation, box.transform.parent);
             newBox.SetActive(true);            
             Destroy(box.gameObject);
-            GameObject spawnedCollectible = Instantiate(collectible, spawnLocation.position, spawnLocation.rotation);
-            spawnedCollectible.SetActive(true);
-            spawnedCollectible.GetComponent<Rigidbody>().AddForce(Vector3.up * 2);
+            if (hasCollectible)
+            {
+                GameObject spawnedCollectible = Instantiate(collectible, spawnLocation.position, Quaternion.identity);
+                spawnedCollectible.SetActive(true);
+                spawnedCollectible.GetComponent<Rigidbody>().AddForce(forceDirection);
+                //TODO: Box opening sound with item jumping out
+            }
+            else
+            {
+                //TODO: Empty box opening sound
+            }
         }
         else
         {
-            //Don't do anything
+            
         }
     }
 }
