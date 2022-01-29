@@ -6,5 +6,6 @@ using UnityEngine;
 public class AreaManager
 {
     public bool lightOn = false;
+    public Room room;
 }
 
