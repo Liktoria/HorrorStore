@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> openBoxes = new List<GameObject>();
+    [SerializeField] private GameObject openBox;
+    [SerializeField] private GameObject collectible;
     public List<AreaManager> areas;
     [HideInInspector] public AreaManager currentArea;
     public event Action<bool, Room> LightSwitched;    
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour
         {
             if (currentArea.collectiblesCollected > 0)
             {
-                generator.numberOfAddedParts += currentArea.collectiblesCollected;
+                generator.AddFuses(currentArea.collectiblesCollected);
                 currentArea.collectiblesCollected = 0;
                 currentArea.itemAmountText.text = string.Empty;
                 currentArea.UIElement3D.SetActive(false);
@@ -94,14 +95,27 @@ public class GameManager : MonoBehaviour
         {
             //Open box
             box.open = true;
-            int randomBoxIndex = UnityEngine.Random.Range(0, openBoxes.Count);
-            GameObject newBox = Instantiate(openBoxes[randomBoxIndex], box.transform.position, box.transform.rotation, box.transform.parent);
-            newBox.SetActive(true);
+            bool hasCollectible = box.hasCollectible;
+            Transform spawnLocation = box.collectibleSpawnLocation;
+            Vector3 forceDirection = box.forceDirection;
+            GameObject newBox = Instantiate(openBox, box.transform.position, openBox.transform.rotation, box.transform.parent);
+            newBox.SetActive(true);            
             Destroy(box.gameObject);
+            if (hasCollectible)
+            {
+                GameObject spawnedCollectible = Instantiate(collectible, spawnLocation.position, Quaternion.identity);
+                spawnedCollectible.SetActive(true);
+                spawnedCollectible.GetComponent<Rigidbody>().AddForce(forceDirection);
+                //TODO: Box opening sound with item jumping out
+            }
+            else
+            {
+                //TODO: Empty box opening sound
+            }
         }
         else
         {
-            //Don't do anything
+            
         }
     }
 }
