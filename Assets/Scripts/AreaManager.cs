@@ -9,5 +9,6 @@ public class AreaManager
     public int collectiblesCollected = 0;
     public int collectiblesNeeded;
     public Room correspondingRoom;
+    public bool oswaldSpawnAllowed = false;
 }
 
