@@ -1861,6 +1861,11 @@ MonoBehaviour:
     collectiblesNeeded: 0
     correspondingRoom: 0
     oswaldSpawnAllowed: 0
+  - lightOn: 0
+    collectiblesCollected: 0
+    collectiblesNeeded: 0
+    correspondingRoom: 1
+    oswaldSpawnAllowed: 0
   currentArea:
     lightOn: 0
     collectiblesCollected: 0

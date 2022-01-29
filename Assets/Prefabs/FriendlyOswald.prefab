@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyOswald: {fileID: 7238914104191755460}
   badOswald: {fileID: 3330223138404855264}
+  room: 0
 --- !u!1 &3330223138404855264
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +66,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3425290437640899658
 Transform:
   m_ObjectHideFlags: 0
@@ -95,7 +96,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3330223138404855264}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -205,6 +206,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c0632580d1ad0cf44a0a45eea318b195, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c0632580d1ad0cf44a0a45eea318b195, type: 3}
       propertyPath: m_Name
       value: Oswald_Good
@@ -221,3 +226,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0632580d1ad0cf44a0a45eea318b195, type: 3}
   m_PrefabInstance: {fileID: 7544835423322184085}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1435028123769990504
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238914104191755460}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8466784730760291266, guid: c0632580d1ad0cf44a0a45eea318b195, type: 3}
