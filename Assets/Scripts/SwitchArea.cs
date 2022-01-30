@@ -17,6 +17,7 @@ public class SwitchArea : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            AreaManager previousArea = gameManager.currentArea;
             if(gameManager.currentArea.correspondingRoom == oneRoom)
             {
                 gameManager.currentArea = gameManager.areas[(int)secondRoom];
@@ -26,6 +27,14 @@ public class SwitchArea : MonoBehaviour
             {
                 gameManager.currentArea = gameManager.areas[(int)oneRoom];
                 Debug.Log("Current area is now " + gameManager.currentArea.correspondingRoom);
+            }
+            if(!gameManager.currentArea.lightOn && previousArea.lightOn)
+            {
+                gameManager.SwitchLight(false);
+            }
+            else if(gameManager.currentArea.lightOn && !previousArea.lightOn)
+            {
+                gameManager.SwitchLight(true);
             }
         }
     }
