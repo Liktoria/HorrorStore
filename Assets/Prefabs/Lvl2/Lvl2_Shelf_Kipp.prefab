@@ -98,6 +98,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf_Big_empty_bent_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4040656067078720528, guid: f57411d1f8b95064a967ee310841b7a1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040656067078720528, guid: f57411d1f8b95064a967ee310841b7a1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f57411d1f8b95064a967ee310841b7a1, type: 3}
 --- !u!1 &1158583978718886212 stripped

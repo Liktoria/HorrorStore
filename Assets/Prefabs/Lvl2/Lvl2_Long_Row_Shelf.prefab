@@ -102,6 +102,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf_Big_empty_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 408fae4c50da8544ba49cc5d4e70c6b4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 408fae4c50da8544ba49cc5d4e70c6b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 408fae4c50da8544ba49cc5d4e70c6b4, type: 3}
 --- !u!1 &4408516357710878946 stripped

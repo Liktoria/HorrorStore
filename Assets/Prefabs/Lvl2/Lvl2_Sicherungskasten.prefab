@@ -98,6 +98,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sicherungskasten
       objectReference: {fileID: 0}
+    - target: {fileID: 5715357487442629316, guid: 2bb34ebb9cc3c5147816eb8a10010139, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715357487442629316, guid: 2bb34ebb9cc3c5147816eb8a10010139, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bb34ebb9cc3c5147816eb8a10010139, type: 3}
 --- !u!1 &2449387740295639671 stripped
