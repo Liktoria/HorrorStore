@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5012686362432341680}
   - component: {fileID: 8232430746132187413}
   - component: {fileID: 6186696209812848095}
-  - component: {fileID: 7404282638427610215}
+  - component: {fileID: 8567768287866085189}
   m_Layer: 0
   m_Name: Shelf_Big_empty_03
   m_TagString: Untagged
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7404282638427610215
-BoxCollider:
+--- !u!64 &8567768287866085189
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,6 +92,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1710199, y: 0.02281202, z: 0.10407296}
-  m_Center: {x: 0, y: 0.06719344, z: 0.05352728}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6476916116080485902, guid: fbf5444f754e19f4b91a870984501842, type: 3}
