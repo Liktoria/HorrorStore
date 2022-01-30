@@ -13,6 +13,12 @@ public class MenuManager : MonoBehaviour
     private bool isGameOver = false;
     private int maxScore = 500;
 
+    private GameManager gameManager;
+
+    private void Start() {
+        gameManager = GameManager.gameManager;
+    }
+
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape) && !isGameOver)
@@ -28,6 +34,11 @@ public class MenuManager : MonoBehaviour
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameWin();
+            TogglePause();
         }
     }
 
@@ -64,9 +75,9 @@ public class MenuManager : MonoBehaviour
 
     private void GameWin()
     {
-        if(GameManager.gameManager.CheckWin())
+        if(gameManager.CheckWin())
         {
-            //WinScreen öffnen
+            pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "You did it!";
         }
     }
 }

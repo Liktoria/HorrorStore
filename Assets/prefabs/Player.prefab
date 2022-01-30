@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 1015770526184799251}
   - component: {fileID: 2772216042230075477}
   - component: {fileID: 6834425882604757188}
+  - component: {fileID: 7326092809333126255}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -177,7 +178,38 @@ MonoBehaviour:
   timeToSpawnTo: 40
   pappaufsteller: {fileID: 2950926180601264789, guid: dda869a3f4e7f8f4388ae418e87ccdb4, type: 3}
   spawnPoint: {fileID: 8680573633896900683}
-  lightIsOn: 0
+--- !u!114 &7326092809333126255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015770526184799263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 341846091
+      Data2: 1145789091
+      Data3: 544205235
+      Data4: 232702623
+    Path: event:/AMB/2D/area
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: amb_state
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1015770526217827559
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +331,7 @@ GameObject:
   - component: {fileID: 1015770526346295411}
   - component: {fileID: 1015770526346295414}
   - component: {fileID: 1015770526346295415}
+  - component: {fileID: 8511914178042349023}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -422,6 +455,20 @@ MonoBehaviour:
   vol: {fileID: 0}
   bloomIntensity: 10
   vignetteIntensity: 0.45
+--- !u!114 &8511914178042349023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015770526346295410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &5405196343397721250
 GameObject:
   m_ObjectHideFlags: 0
