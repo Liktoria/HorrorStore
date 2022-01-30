@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
             {
                 GameObject spawnedCollectible = Instantiate(collectible, spawnLocation.position, Quaternion.identity);
                 spawnedCollectible.SetActive(true);
-                spawnedCollectible.GetComponent<Rigidbody>().AddForce(forceDirection);
+                spawnedCollectible.GetComponent<Rigidbody>().AddForce(forceDirection * 0.1f);
                 //TODO: Box opening sound with item jumping out
             }
             else

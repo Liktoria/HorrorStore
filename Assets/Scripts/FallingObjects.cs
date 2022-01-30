@@ -11,17 +11,20 @@ public class FallingObjects : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // only call with given probability
-        float probability = Random.Range(0f, 1f);
-
-        if (probability < eventProbability)
+        if (other.gameObject.CompareTag("Player"))
         {
-            if (isObjectFallingDown)
-                fallingObject.GetComponent<Rigidbody>().useGravity = true;
+            // only call with given probability
+            float probability = Random.Range(0f, 1f);
 
-            fallingObject.GetComponent<Rigidbody>().AddForce(fallingForceStrength, ForceMode.Impulse);
+            if (probability < eventProbability)
+            {
+                if (isObjectFallingDown)
+                    fallingObject.GetComponent<Rigidbody>().useGravity = true;
 
-            gameObject.SetActive(false);
+                fallingObject.GetComponent<Rigidbody>().AddForce(fallingForceStrength, ForceMode.Impulse);
+
+                gameObject.SetActive(false);
+            }
         }
     }
 }
