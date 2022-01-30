@@ -11,7 +11,6 @@
 {5d38969a-b8cc-4704-8ebf-5b952e6a330f} event:/MUSIC/elevator_music
 {6e662fb5-7609-43b3-93dc-347311c51113} event:/SFX/OSWALD/jumpscare_01
 {66aa1539-43db-4e59-a789-b5a7e1313496} event:/SFX/OSWALD/jumpscare_02
-{6fa271ea-acfa-4e70-9146-1559b31a2ce1} event:/SFX/PLAYER/footstep_left
-{7600aca9-8061-480f-80d2-af6e3331d828} event:/SFX/PLAYER/footstep_right
+{eb39518f-8889-44d0-bcd6-963a8314b627} event:/SFX/PLAYER/footstep
 {5525b1db-bc27-4451-b68b-51102ace5431} parameter:/amb_state
 {d581c7b1-a828-4d0e-8163-13a96177e483} parameter:/mus_state
