@@ -10,27 +10,24 @@ public class MenuManager : MonoBehaviour
     public GameObject player;
 
     private bool isGameActive = true;
-    private bool isGameOver = false;
-    private int maxScore = 500;
 
     private GameManager gameManager;
 
     private void Start() {
         gameManager = GameManager.gameManager;
+
+        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Game paused! \n\n Press 'Esc' to continue \n\n Press 'Q' to quit";
     }
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) && !isGameOver)
+        // Pause
+        if (Input.GetKeyUp(KeyCode.Escape) && !gameManager.gameWon)
         {
             TogglePause();
         }
-        else if (Input.GetKeyUp(KeyCode.O) && isGameActive)
-        {
-            TogglePause();
-            GameOver();
-        }
-        else if (Input.GetKeyUp(KeyCode.Return) && isGameOver)
+        // Restart
+        else if (Input.GetKeyUp(KeyCode.Return) && gameManager.gameWon)
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -40,6 +37,11 @@ public class MenuManager : MonoBehaviour
         {
             StartCoroutine(ShowWinScreen());
             gameManager.gameWon = false;
+        }
+        // Exit
+        else if (Input.GetKeyDown(KeyCode.Q) && !isGameActive)
+        {
+            Application.Quit();
         }
     }
 
@@ -63,21 +65,11 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    private void GameOver()
-    {
-        isGameOver = true;
-        int highscore = Mathf.RoundToInt(maxScore - Time.timeSinceLevelLoad);
-        if (highscore < 0)
-            highscore = 0;
-        if (PlayerPrefs.GetInt("highscore", 0) < highscore)
-            PlayerPrefs.SetInt("highscore", highscore);
-        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + highscore + "\n\n\nGame over\n\n\nPress 'Enter' to restart";
-    }
-
     IEnumerator ShowWinScreen()
     {
         yield return new WaitForSeconds(5);
-        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "You did it! \n The store has finally power and even Oswald is happy! \n \n Thank you for playing!";
+        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "You did it! \n The store has finally power and even Oswald is happy! \n \n Thank you for playing!" +
+            "\n\n Press 'Enter' to restart \n\n Press 'Q' to quit";
         TogglePause();
     }
 }
