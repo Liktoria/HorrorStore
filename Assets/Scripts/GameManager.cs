@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         currentArea.lightOn = lightOn;
         Debug.Log("Setting light to " + lightOn + " in area " + currentArea.correspondingRoom);
         LightSwitched?.Invoke(lightOn, currentArea.correspondingRoom);
+        //TODO: (Sound) if(lightOn = true) -> Switching on lights, start music, evtl. summen, stop creepy stuff in room
     }
 
     public void Collect(Collectible collectible)
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
         {
             currentArea.itemAmountText.text = string.Empty + currentArea.collectiblesCollected;
         }
+        //TODO: (Sound) Picking things up
     }
 
     private void UseCollectibles(Generator generator)
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
             if (currentArea.collectiblesCollected > 0)
             {
                 generator.AddFuses(currentArea.collectiblesCollected);
+                //TODO: (Sound) Sicherung in Sicherungskasten einbauen
                 currentArea.collectiblesCollected = 0;
                 currentArea.itemAmountText.text = string.Empty;
                 currentArea.UIElement3D.SetActive(false);
@@ -68,10 +71,6 @@ public class GameManager : MonoBehaviour
                 {
                     SwitchLight(true);
                 }
-            }
-            else
-            {
-                //You didn't collect anything that fits in here -> useless clicking sound
             }
         }
     }
@@ -106,16 +105,12 @@ public class GameManager : MonoBehaviour
                 GameObject spawnedCollectible = Instantiate(collectible, spawnLocation.position, Quaternion.identity);
                 spawnedCollectible.SetActive(true);
                 spawnedCollectible.GetComponent<Rigidbody>().AddForce(forceDirection * 0.1f);
-                //TODO: Box opening sound with item jumping out
+                //TODO: (Sound) Box opening with item jumping out
             }
             else
             {
-                //TODO: Empty box opening sound
+                //TODO: (Sound) Empty box opening
             }
-        }
-        else
-        {
-            
-        }
+        }        
     }
 }
