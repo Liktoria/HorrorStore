@@ -384,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 120276210062690369, guid: bebaecb46f4844d47aef052ba126ab58, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1109081237}
+      objectReference: {fileID: 1599326209}
     - target: {fileID: 120276210062690369, guid: bebaecb46f4844d47aef052ba126ab58, type: 3}
       propertyPath: m_PlaneDistance
       value: 100
@@ -1914,8 +1914,8 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
   OverrideMaxDistance: 20
 --- !u!4 &499496412
 Transform:
@@ -2660,8 +2660,8 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
   OverrideMaxDistance: 20
 --- !u!4 &662881009
 Transform:
@@ -2815,8 +2815,8 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
   OverrideMaxDistance: 20
 --- !u!4 &724662945
 Transform:
@@ -2837,19 +2837,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8032951525660682696, guid: bc0365345faa86e499e6aa22257e5f35, type: 3}
   m_PrefabInstance: {fileID: 1727206385}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &739934223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739934222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92adf827d223ab438419f64ee7b035f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventEmitter: {fileID: 739934224}
 --- !u!114 &739934224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2880,6 +2867,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &739934228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739934222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92adf827d223ab438419f64ee7b035f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventEmitter: {fileID: 739934224}
 --- !u!1001 &756276127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4209,11 +4209,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3784028029816375496, guid: 5c99b0a1084f5884786fb46f6c2a9cf9, type: 3}
   m_PrefabInstance: {fileID: 1101063044}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &1109081237 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1015770526346295408, guid: 381f50f9d9a026b4dbfe917b2f306493, type: 3}
-  m_PrefabInstance: {fileID: 1015770525266719514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1153749021 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1049431602948057651, guid: 51ccee7bc9ab3a24b989050154a107e4, type: 3}
@@ -4479,19 +4474,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8032951525276587168, guid: bc0365345faa86e499e6aa22257e5f35, type: 3}
   m_PrefabInstance: {fileID: 1727206385}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1266451489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266451488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92adf827d223ab438419f64ee7b035f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventEmitter: {fileID: 739934224}
 --- !u!114 &1266451490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4522,6 +4504,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1266451494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266451488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92adf827d223ab438419f64ee7b035f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventEmitter: {fileID: 739934224}
 --- !u!4 &1275051563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6104836475177886930, guid: 6d4ef5bec710a3d499a0d115f234783a, type: 3}
