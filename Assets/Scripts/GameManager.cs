@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
             currentArea.itemAmountText.text = string.Empty + currentArea.collectiblesCollected;
         }
         //TODO: (Sound) Picking things up
+        
     }
 
     private void UseCollectibles(Generator generator)
