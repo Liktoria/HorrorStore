@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private FMODUnity.StudioEventEmitter eventEmitterCollectible;
+    [SerializeField] private FMODUnity.StudioEventEmitter eventEmitterBoxOpen;
     [SerializeField] private GameObject openBox;
     [SerializeField] private GameObject collectible;
     public List<AreaManager> areas;
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
             currentArea.itemAmountText.text = string.Empty + currentArea.collectiblesCollected;
         }
         //TODO: (Sound) Picking things up
-        
+        eventEmitterCollectible.Play();
     }
 
     private void UseCollectibles(Generator generator)
@@ -126,10 +128,12 @@ public class GameManager : MonoBehaviour
                 spawnedCollectible.SetActive(true);
                 spawnedCollectible.GetComponent<Rigidbody>().AddForce(forceDirection * 0.1f);
                 //TODO: (Sound) Box opening with item jumping out
+                eventEmitterBoxOpen.Play();
             }
             else
             {
                 //TODO: (Sound) Empty box opening
+                eventEmitterBoxOpen.Play();
             }
         }        
     }

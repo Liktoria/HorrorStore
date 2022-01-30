@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private FMODUnity.StudioEventEmitter stepEmitter;
     [SerializeField] private float walkingSpeed = 0.01f;
     [SerializeField] private float runningSpeed = 4f;
     //[SerializeField] private float jumpSpeed = 8.0f;
@@ -62,14 +63,16 @@ public class PlayerMovement : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
-        if(moveDirection.magnitude > 0.1f && !isMoving)
+        if((curSpeedX > 0.1f || curSpeedY > 0.1f) && !isMoving)
         {
             isMoving = true;
             //TODO: (Sound) Start step sound
+            stepEmitter.Play();
         }
-        else if(moveDirection.magnitude <= 0.1f && isMoving)
+        else if((curSpeedX <= 0.1f && curSpeedY <= 0.1f) && isMoving)
         {
             isMoving = false;
+            stepEmitter.Stop();
             //TODO: (Sound) Stop step sound
         }
 

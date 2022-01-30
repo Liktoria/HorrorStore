@@ -1873,6 +1873,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1015770526184799263, guid: 381f50f9d9a026b4dbfe917b2f306493, type: 3}
   m_PrefabInstance: {fileID: 1015770525266719514}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &489403839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489403832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -348565105
+      Data2: 1154517129
+      Data3: 982963900
+      Data4: 666244227
+    Path: event:/SFX/PLAYER/footstep
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 0
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &499496409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +2702,7 @@ MonoBehaviour:
       Data4: -1985351139
     Path: event:/AMB/3D/evil_whisper
   Event: 
-  PlayEvent: 0
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -4941,6 +4971,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 469760, guid: 94e472da99198764cb9d172d651d1b5c, type: 3}
   m_PrefabInstance: {fileID: 1453473878}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1503529246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3586185930086008713, guid: bc0365345faa86e499e6aa22257e5f35, type: 3}
+  m_PrefabInstance: {fileID: 1727206385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1503529251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503529246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1912769219
+      Data2: 1152809804
+      Data3: -867981176
+      Data4: -948210759
+    Path: event:/SFX/PLAYER/fuse_insert
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1510295009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5378,6 +5443,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1476911101606195798, guid: bc0365345faa86e499e6aa22257e5f35, type: 3}
+      propertyPath: eventEmitter
+      value: 
+      objectReference: {fileID: 1503529251}
     - target: {fileID: 1687171285675281466, guid: bc0365345faa86e499e6aa22257e5f35, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -7026,6 +7095,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1015770526184799250, guid: 381f50f9d9a026b4dbfe917b2f306493, type: 3}
+      propertyPath: stepEmitter
+      value: 
+      objectReference: {fileID: 489403839}
+    - target: {fileID: 1015770526184799250, guid: 381f50f9d9a026b4dbfe917b2f306493, type: 3}
       propertyPath: runningSpeed
       value: 4.5
       objectReference: {fileID: 0}
@@ -7097,6 +7170,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1015770525266719514}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489403832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1015770525266719516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4724165465997021358, guid: 381f50f9d9a026b4dbfe917b2f306493, type: 3}
+  m_PrefabInstance: {fileID: 1015770525266719514}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1015770525266719517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7063687291765850313, guid: 381f50f9d9a026b4dbfe917b2f306493, type: 3}
+  m_PrefabInstance: {fileID: 1015770525266719514}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
@@ -7275,6 +7370,14 @@ PrefabInstance:
       propertyPath: openBox
       value: 
       objectReference: {fileID: 129842519354789524, guid: d32134078caf0f74db31be493c246e4d, type: 3}
+    - target: {fileID: 7568790705098514224, guid: 4a3dcb4a2a160af4ea635bf3b52f9408, type: 3}
+      propertyPath: eventEmitterBoxOpen
+      value: 
+      objectReference: {fileID: 1015770525266719516}
+    - target: {fileID: 7568790705098514224, guid: 4a3dcb4a2a160af4ea635bf3b52f9408, type: 3}
+      propertyPath: eventEmitterCollectible
+      value: 
+      objectReference: {fileID: 1015770525266719517}
     - target: {fileID: 7568790705098514224, guid: 4a3dcb4a2a160af4ea635bf3b52f9408, type: 3}
       propertyPath: areas.Array.data[0].lightOn
       value: 1
