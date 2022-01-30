@@ -68,6 +68,7 @@ public class Interact : MonoBehaviour
         {
             Debug.Log("Interacted with a generator.");
             gameManager.TryUseGenerator(generator);
+            gameManager.CheckWin();
         }
         else if (currentInteractable is Box box)
         {

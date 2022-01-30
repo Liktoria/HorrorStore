@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager gameManager;
 
-    private bool gameWon;
+    public bool gameWon;
 
     private void Awake()
     {
@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
         }        
     }
 
-    public bool CheckWin()
+    public void CheckWin()
     {
         int lights = 0;
         for(int i = 0; i < areas.Count; i++)
@@ -157,6 +157,5 @@ public class GameManager : MonoBehaviour
             if(lights == areas.Count)
                 gameWon = true;
         }
-        return gameWon;
     }
 }

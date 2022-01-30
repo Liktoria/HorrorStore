@@ -35,10 +35,11 @@ public class MenuManager : MonoBehaviour
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        else if (Input.GetKeyDown(KeyCode.P))
+        //WinScreen
+        if(gameManager.gameWon)
         {
-            GameWin();
-            TogglePause();
+            Debug.Log("You won! Update");
+            ShowWinScreen();
         }
     }
 
@@ -73,11 +74,11 @@ public class MenuManager : MonoBehaviour
         pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + highscore + "\n\n\nGame over\n\n\nPress 'Enter' to restart";
     }
 
-    private void GameWin()
+    IEnumerator ShowWinScreen()
     {
-        if(gameManager.CheckWin())
-        {
-            pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "You did it!";
-        }
+        Debug.Log("You Won - Screen");
+        yield return new WaitForSeconds(5);
+        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "You did it! The store has finally power and even Oswald is happy! /n Thank you for playing!";
+        TogglePause();
     }
 }
