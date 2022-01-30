@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager gameManager;
 
+    private bool gameWon;
+
     private void Awake()
     {
         if (gameManager == null)
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
         {
             throw new UnityException("Es muss mindestens eine Area im Gamemanager konfiguriert sein.");
         }
+
+        gameWon = false;
     }
 
     private void Start()
@@ -139,5 +143,19 @@ public class GameManager : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }        
+    }
+
+    public bool CheckWin()
+    {
+        int lights = 0;
+        for(int i = 0; i < areas.Count; i++)
+        {
+            if(areas[i].lightOn)
+                lights++;
+
+            if(lights == areas.Count)
+                gameWon = true;
+        }
+        return gameWon;
     }
 }
