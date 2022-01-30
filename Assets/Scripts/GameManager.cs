@@ -32,10 +32,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SwitchLight(true);
+    }
+
     public void SwitchLight(bool lightOn)
     {
         currentArea.lightOn = lightOn;
         Debug.Log("Setting light to " + lightOn + " in area " + currentArea.correspondingRoom);
+        if(lightOn)
+        {
+            StartCoroutine(LightSwitchSmooth(0.3f, 1.5f, 2));
+            RenderSettings.reflectionIntensity = 0.5f;
+        }
+        else
+        {
+            StartCoroutine(LightSwitchSmooth(1.5f, 0.3f, 2));
+            RenderSettings.reflectionIntensity = 0.2f;
+        }
         LightSwitched?.Invoke(lightOn, currentArea.correspondingRoom);
         //TODO: (Sound) if(lightOn = true) -> Switching on lights, start music, evtl. summen, stop creepy stuff in room
     }
@@ -97,7 +112,7 @@ public class GameManager : MonoBehaviour
             bool hasCollectible = box.hasCollectible;
             Transform spawnLocation = box.collectibleSpawnLocation;
             Vector3 forceDirection = box.forceDirection;
-            GameObject newBox = Instantiate(openBox, box.transform.position, openBox.transform.rotation, box.transform.parent);
+            GameObject newBox = Instantiate(openBox, box.transform.position, box.transform.rotation, box.transform.parent);
             newBox.SetActive(true);            
             Destroy(box.gameObject);
             if (hasCollectible)
@@ -111,6 +126,18 @@ public class GameManager : MonoBehaviour
             {
                 //TODO: (Sound) Empty box opening
             }
+        }        
+    }
+
+    IEnumerator LightSwitchSmooth(float startValue, float endValue, float duration)
+    {
+        float time = 0;
+
+        while (time < duration)
+        {
+            RenderSettings.ambientIntensity = Mathf.Lerp(startValue, endValue, time / duration);
+            time += Time.deltaTime;
+            yield return null;
         }        
     }
 }
