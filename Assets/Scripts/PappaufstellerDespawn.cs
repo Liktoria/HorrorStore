@@ -11,13 +11,16 @@ public class PappaufstellerDespawn : MonoBehaviour
     public int angleTo = 132;
     public float maxDistance = 10;
     public float eventProbability = 0.1f;
+    public int maxLivingTime = 5;
 
     private GameManager gameManager;
+    private float livingSince;
 
     void Start()
     {
         gameManager = GameManager.gameManager;
         gameManager.LightSwitched += ToggleLight;
+        livingSince = Time.realtimeSinceStartup;
 
         if(angleFrom > angleTo)
         {
@@ -43,6 +46,13 @@ public class PappaufstellerDespawn : MonoBehaviour
 
         // Debug.Log(angle + " "+ distance + " " + maybeRemove + "  " + (angle > angleFrom && angle < angleTo && maybeRemove == 1 && distance > maxDistance));
         if (angle > angleFrom && angle < angleTo && maybeRemove < eventProbability && distance > maxDistance)
+        {
+            Die();
+        }
+
+        float currentTime = Time.realtimeSinceStartup;
+
+        if((livingSince + maxLivingTime < currentTime) && angle > 132)
         {
             Die();
         }
