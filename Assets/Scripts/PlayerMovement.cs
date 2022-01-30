@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float walkingSpeed = 0.01f;
     [SerializeField] private float runningSpeed = 4f;
-    [SerializeField] private float jumpSpeed = 8.0f;
+    //[SerializeField] private float jumpSpeed = 8.0f;
     [SerializeField] private float gravity = 20.0f;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float lookSpeed = 2.0f;
@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
+    private bool isMoving = false;
     private float rotationX = 0;
 
     [HideInInspector]
@@ -42,14 +43,14 @@ public class PlayerMovement : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
+        /*if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpSpeed;
         }
         else
         {
             moveDirection.y = movementDirectionY;
-        }
+        }*/
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
@@ -61,6 +62,16 @@ public class PlayerMovement : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
+        if(moveDirection.magnitude > 0.1f && !isMoving)
+        {
+            isMoving = true;
+            //TODO: (Sound) Start step sound
+        }
+        else if(moveDirection.magnitude <= 0.1f && isMoving)
+        {
+            isMoving = false;
+            //TODO: (Sound) Stop step sound
+        }
 
         // Player and Camera rotation
         if (canMove)

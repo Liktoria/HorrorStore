@@ -46,6 +46,10 @@ public class Interact : MonoBehaviour
                 //Debug.Log("Added interactable to list.");
             }
         }
+        else if(other.gameObject.tag == "Oswald")
+        {
+            //TODO: (Sound) Add creepy "oswald discovered behind you" sound
+        }
     }
 
     private void OnTriggerExit(Collider other)

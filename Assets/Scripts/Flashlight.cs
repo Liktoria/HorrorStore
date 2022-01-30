@@ -19,6 +19,7 @@ public class Flashlight : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             spotlight.enabled = !spotlight.enabled;
+            //TODO: (Sound) Flashlight turns on/off
         }
     }
 }
