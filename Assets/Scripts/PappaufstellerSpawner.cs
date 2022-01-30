@@ -46,7 +46,6 @@ public class PappaufstellerSpawner : MonoBehaviour
         {
             lastTime = currentTime;
             Quaternion rotation = spawnPoint.parent.transform.rotation;
-            rotation.y = rotation.y + 90;
             GameObject pappaufstellerObject = spawnPappaufsteller(pappaufsteller, spawnPoint.position, rotation);
 
             PappaufstellerDespawn script = pappaufstellerObject.GetComponent<PappaufstellerDespawn>();

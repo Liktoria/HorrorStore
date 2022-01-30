@@ -44,7 +44,7 @@ public class PappaufstellerDespawn : MonoBehaviour
         float angle = Vector3.Angle(playerTransform.forward, playerTransform.position - this.transform.position);
         float distance = Vector3.Distance(playerTransform.position, this.transform.position);
 
-        // Debug.Log(angle + " "+ distance + " " + maybeRemove + "  " + (angle > angleFrom && angle < angleTo && maybeRemove == 1 && distance > maxDistance));
+        Debug.Log(angle + " "+ distance + " " + maybeRemove + "  " + (angle > angleFrom && angle < angleTo && maybeRemove == 1 && distance > maxDistance));
         if (angle > angleFrom && angle < angleTo && maybeRemove < eventProbability && distance > maxDistance)
         {
             Die();
@@ -52,7 +52,7 @@ public class PappaufstellerDespawn : MonoBehaviour
 
         float currentTime = Time.realtimeSinceStartup;
 
-        if((livingSince + maxLivingTime < currentTime) && angle > 132)
+        if((livingSince + maxLivingTime < currentTime) && angle < 128)
         {
             Die();
         }
