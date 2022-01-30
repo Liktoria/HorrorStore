@@ -160,3 +160,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92adf827d223ab438419f64ee7b035f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventEmitter: {fileID: 4989230954730961339}
+--- !u!114 &4989230954730961339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691833306738355347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -211381471
+      Data2: 1137883139
+      Data3: -1487958911
+      Data4: -2014948598
+    Path: event:/SFX/STORE_ITEMS/rolling_shopping_cart
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

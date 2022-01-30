@@ -6,6 +6,7 @@ public class CollisionSound : MonoBehaviour
 {
     private float secondsUntilSoundsStart = 1f;
     private bool shouldSoundsPlay = false;
+    [SerializeField] FMODUnity.StudioEventEmitter eventEmitter;
     //TODO: (Sound) Add variable/reference here, that can be set from outside to determine which sound should be played on collision
 
     private void Start()
@@ -18,6 +19,7 @@ public class CollisionSound : MonoBehaviour
         if (shouldSoundsPlay)
         {
             //TODO: (Sound) play collision sound of objects (krachen/scheppern)
+            eventEmitter.Play();
         }
     }
 
