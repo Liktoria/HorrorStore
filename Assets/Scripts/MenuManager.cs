@@ -61,4 +61,12 @@ public class MenuManager : MonoBehaviour
             PlayerPrefs.SetInt("highscore", highscore);
         pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + highscore + "\n\n\nGame over\n\n\nPress 'Enter' to restart";
     }
+
+    private void GameWin()
+    {
+        if(GameManager.gameManager.CheckWin())
+        {
+            //WinScreen öffnen
+        }
+    }
 }
