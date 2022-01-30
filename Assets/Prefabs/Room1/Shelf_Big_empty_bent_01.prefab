@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5741946312422098281}
   - component: {fileID: 8647093988052404940}
   - component: {fileID: 6909737214261296646}
-  - component: {fileID: 8431210536560849068}
+  - component: {fileID: -2841149667268493365}
   m_Layer: 0
   m_Name: Shelf_Big_empty_bent_01
   m_TagString: Untagged
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8431210536560849068
-BoxCollider:
+--- !u!64 &-2841149667268493365
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,6 +92,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1718058, y: 0.07376764, z: 0.11621142}
-  m_Center: {x: 0, y: 0.00890091, z: 0.0450945}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1716842359454501035, guid: 9ce66c06a3226d24fa345b416fd5e89d, type: 3}
