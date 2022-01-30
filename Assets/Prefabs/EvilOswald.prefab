@@ -50,7 +50,7 @@ MonoBehaviour:
   angleTo: 132
   maxDistance: 10
   eventProbability: 0
-  maxLivingTime: 5
+  maxLivingTime: 15
 --- !u!1001 &249896780129313121
 PrefabInstance:
   m_ObjectHideFlags: 0

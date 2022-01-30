@@ -11,7 +11,7 @@ public class PappaufstellerSpawner : MonoBehaviour
     public float timeToSpawnTo = 40;
     public GameObject pappaufsteller;
     public Transform spawnPoint;
-    public bool lightIsOn = false;
+    private bool lightIsOn = false;
     private GameManager gameManager;
 
     private float lastTime;
