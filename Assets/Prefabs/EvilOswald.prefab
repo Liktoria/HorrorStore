@@ -50,6 +50,7 @@ MonoBehaviour:
   angleTo: 132
   maxDistance: 10
   eventProbability: 0
+  maxLivingTime: 5
 --- !u!1001 &249896780129313121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,6 +58,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6777587203008702398}
     m_Modifications:
+    - target: {fileID: 2871324348526958149, guid: 1cf920420650c9f4e90c9fe82e5ac5d2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f9ca56787adb44546bc1f6fa724bfe95, type: 2}
     - target: {fileID: 4004776029326339370, guid: 1cf920420650c9f4e90c9fe82e5ac5d2, type: 3}
       propertyPath: m_RootOrder
       value: 0
