@@ -7,19 +7,22 @@ public class PappaufstellerSpawner : MonoBehaviour
 {
 
 
-    public float timeToSpawn = 20;
+    public float timeToSpawnFrom = 20;
+    public float timeToSpawnTo = 40;
     public GameObject pappaufsteller;
     public Transform spawnPoint;
     public bool lightIsOn = false;
     private GameManager gameManager;
 
     private float lastTime;
+    private float nextTimeToSpawn;
 
     private void Start()
     {
         lastTime = Time.realtimeSinceStartup;
         gameManager = GameManager.gameManager;
         gameManager.LightSwitched += ToggleLight;
+        nextTimeToSpawn = Random.Range(timeToSpawnFrom, timeToSpawnTo + 1);
     }
 
     private void OnDestroy()
@@ -35,6 +38,7 @@ public class PappaufstellerSpawner : MonoBehaviour
     private void intervallSpawn()
     {
         float currentTime = Time.realtimeSinceStartup;
+        float timeToSpawn = nextTimeToSpawn;
         if ((currentTime - timeToSpawn) > lastTime && !lightIsOn && DestinationOk(spawnPoint.position))
         {
             lastTime = currentTime;
@@ -46,7 +50,7 @@ public class PappaufstellerSpawner : MonoBehaviour
             script.room = gameManager.currentArea.correspondingRoom;
             script.playerTransform = spawnPoint.parent.transform;
 
-
+            nextTimeToSpawn = Random.Range(timeToSpawnFrom, timeToSpawnTo + 1);
         }
     }
 
