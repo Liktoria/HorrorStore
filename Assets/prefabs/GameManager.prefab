@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b62a908c2d8f3c4291ee87fcfb9bb99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openBox: {fileID: 0}
+  openBox: {fileID: 129842519354789524, guid: d32134078caf0f74db31be493c246e4d, type: 3}
   collectible: {fileID: 8286501012042682827, guid: da5cbb441207db04e94032e75b882475, type: 3}
   areas:
   - lightOn: 0
