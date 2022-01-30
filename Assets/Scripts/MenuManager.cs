@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject player;
 
     private bool isGameActive = true;
+    private bool isGameCompleted = false;
 
     private GameManager gameManager;
 
@@ -22,12 +23,12 @@ public class MenuManager : MonoBehaviour
     void Update()
     {
         // Pause
-        if (Input.GetKeyUp(KeyCode.Escape) && !gameManager.gameWon)
+        if (Input.GetKeyUp(KeyCode.Escape) && !isGameCompleted)
         {
             TogglePause();
         }
         // Restart
-        else if (Input.GetKeyUp(KeyCode.Return) && gameManager.gameWon)
+        else if (Input.GetKeyUp(KeyCode.Return) && isGameCompleted)
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -35,6 +36,7 @@ public class MenuManager : MonoBehaviour
         //WinScreen
         if(gameManager.gameWon)
         {
+            isGameCompleted = true;
             StartCoroutine(ShowWinScreen());
             gameManager.gameWon = false;
         }
