@@ -38,8 +38,8 @@ public class MenuManager : MonoBehaviour
         //WinScreen
         if(gameManager.gameWon)
         {
-            Debug.Log("You won! Update");
-            ShowWinScreen();
+            StartCoroutine(ShowWinScreen());
+            gameManager.gameWon = false;
         }
     }
 
@@ -76,9 +76,8 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator ShowWinScreen()
     {
-        Debug.Log("You Won - Screen");
         yield return new WaitForSeconds(5);
-        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "You did it! The store has finally power and even Oswald is happy! /n Thank you for playing!";
+        pausePanel.GetComponentInChildren<TextMeshProUGUI>().text = "You did it! \n The store has finally power and even Oswald is happy! \n \n Thank you for playing!";
         TogglePause();
     }
 }
