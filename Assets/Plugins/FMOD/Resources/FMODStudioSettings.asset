@@ -214,7 +214,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: ../../FmodProjects/GameJam_2022_HorrorStore/GameJam_2022_HorrorStore.fspro
-  sourceBankPath: ../../FmodProjects/GameJam_2022_HorrorStore/Build/Desktop
+  sourceBankPath: Assets/StreamingAssets/Desktop
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -237,7 +237,7 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Master
+  - Desktop/Master
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264

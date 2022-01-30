@@ -1,0 +1,17 @@
+{bccba05d-0232-4c57-9798-2415def17e85} bank:/Master
+{24d68089-7349-0015-11d1-aeeb2f02781d} bank:/Master.strings
+{21fbf948-1d50-4b02-8815-2c9ad889c055} bus:/
+{8583bd9e-f009-437d-9a0b-950639a81ddb} bus:/AMBIENCE
+{08c43130-740f-4e1c-af25-320383d00052} bus:/MUSIC
+{cc1a2214-45e6-4f19-89c4-af79a3e6f364} bus:/OSWALD
+{af5f1dca-a0cf-49a9-a868-fd0cb5c9b808} bus:/PLAYER
+{005f10a0-aea1-43c0-8e60-616f643eb1ba} bus:/Reverb
+{1460284b-5aa3-444b-b3e9-6f209fc2de0d} event:/AMB/2D/area
+{ec98a9b6-5df8-458f-b323-a6f41df2a989} event:/AMB/3D/evil_whisper
+{5d38969a-b8cc-4704-8ebf-5b952e6a330f} event:/MUSIC/elevator_music
+{6e662fb5-7609-43b3-93dc-347311c51113} event:/SFX/OSWALD/jumpscare_01
+{66aa1539-43db-4e59-a789-b5a7e1313496} event:/SFX/OSWALD/jumpscare_02
+{6fa271ea-acfa-4e70-9146-1559b31a2ce1} event:/SFX/PLAYER/footstep_left
+{7600aca9-8061-480f-80d2-af6e3331d828} event:/SFX/PLAYER/footstep_right
+{5525b1db-bc27-4451-b68b-51102ace5431} parameter:/amb_state
+{d581c7b1-a828-4d0e-8163-13a96177e483} parameter:/mus_state
