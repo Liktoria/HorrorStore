@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7568790705098514239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7568790705098514225}
+  - component: {fileID: 7568790705098514224}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7568790705098514225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568790705098514239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7568790705098514224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568790705098514239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b62a908c2d8f3c4291ee87fcfb9bb99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openBox: {fileID: 129842519354789524, guid: d32134078caf0f74db31be493c246e4d, type: 3}
+  collectible: {fileID: 8286501012042682827, guid: da5cbb441207db04e94032e75b882475, type: 3}
+  areas:
+  - lightOn: 0
+    collectiblesCollected: 0
+    collectiblesNeeded: 0
+    correspondingRoom: 0
+    oswaldSpawnAllowed: 0
+    UIElement3D: {fileID: 0}
+    itemAmountText: {fileID: 0}
+  - lightOn: 0
+    collectiblesCollected: 0
+    collectiblesNeeded: 6
+    correspondingRoom: 1
+    oswaldSpawnAllowed: 0
+    UIElement3D: {fileID: 0}
+    itemAmountText: {fileID: 0}
+  - lightOn: 0
+    collectiblesCollected: 0
+    collectiblesNeeded: 6
+    correspondingRoom: 2
+    oswaldSpawnAllowed: 0
+    UIElement3D: {fileID: 0}
+    itemAmountText: {fileID: 0}
+  - lightOn: 0
+    collectiblesCollected: 0
+    collectiblesNeeded: 6
+    correspondingRoom: 3
+    oswaldSpawnAllowed: 0
+    UIElement3D: {fileID: 0}
+    itemAmountText: {fileID: 0}
+  currentArea:
+    lightOn: 0
+    collectiblesCollected: 0
+    collectiblesNeeded: 0
+    correspondingRoom: 0
+    oswaldSpawnAllowed: 0
+    UIElement3D: {fileID: 0}
+    itemAmountText: {fileID: 0}

@@ -63,7 +63,7 @@ public class PappaufstellerSpawner : MonoBehaviour
     static GameObject spawnPappaufsteller(GameObject prefab, Transform tPosition)
     {
         Vector3 position = tPosition.position;
-        position.y = 0.5f;
+        position.y = 1.066f;
         Quaternion rotation = tPosition.rotation;
         return spawnPappaufsteller(prefab, position, rotation);
     }
@@ -72,7 +72,7 @@ public class PappaufstellerSpawner : MonoBehaviour
     {
         Debug.Log("Spawn");
         Vector3 position = tPosition;
-        position.y = 0.5f;
+        position.y = 1.066f;
         Quaternion rotation = tRotation;
         GameObject pappaufsteller = Instantiate(prefab, position, rotation);
         return pappaufsteller;
