@@ -25,8 +25,14 @@ public class InitialSceneManager : MonoBehaviour
     {
         if (isLoadingScene)
             loadingBar.value = Mathf.Clamp01(loadingSceneOperation.progress / .9f);
+        // Start game
         if (Input.GetKeyUp(KeyCode.Return) && !isLoadingScene)
             StartGame();
+        // Exit
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Application.Quit();
+        }
     }
 
     private void StartGame()
