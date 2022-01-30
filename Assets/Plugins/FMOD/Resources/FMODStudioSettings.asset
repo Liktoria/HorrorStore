@@ -211,10 +211,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: ../../FmodProjects/GameJam_2022_HorrorStore/GameJam_2022_HorrorStore.fspro
-  sourceBankPath: ../../FmodProjects/GameJam_2022_HorrorStore/Build
+  sourceBankPath: Assets/StreamingAssets/Desktop
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

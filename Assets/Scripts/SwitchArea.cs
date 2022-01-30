@@ -6,6 +6,9 @@ public class SwitchArea : MonoBehaviour
 {
     [SerializeField] private Room oneRoom;
     [SerializeField] private Room secondRoom;
+    [SerializeField] private FMODUnity.StudioParameterTrigger parameterTriggerAmbienceSave;
+    [SerializeField] private FMODUnity.StudioParameterTrigger parameterTriggerAmbienceDanger;
+
     private GameManager gameManager;
 
     private void Start()
@@ -31,10 +34,12 @@ public class SwitchArea : MonoBehaviour
             if(!gameManager.currentArea.lightOn && previousArea.lightOn)
             {
                 gameManager.SwitchLight(false);
+                parameterTriggerAmbienceDanger.TriggerParameters();
             }
             else if(gameManager.currentArea.lightOn && !previousArea.lightOn)
             {
                 gameManager.SwitchLight(true);
+                parameterTriggerAmbienceSave.TriggerParameters();
             }
         }
     }

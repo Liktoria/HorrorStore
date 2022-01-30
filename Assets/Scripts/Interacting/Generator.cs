@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Generator : Interactable
 {
+    [SerializeField] private FMODUnity.StudioEventEmitter eventEmitter;
     [HideInInspector] public int numberOfPartsNeeded;
     [HideInInspector] public int numberOfAddedParts = 0;
     public List<GameObject> missingFuses = new List<GameObject>();
@@ -25,5 +26,6 @@ public class Generator : Interactable
             missingFuses.RemoveAt(0);
         }
         numberOfAddedParts += amount;
+        eventEmitter.Play();
     }
 }
