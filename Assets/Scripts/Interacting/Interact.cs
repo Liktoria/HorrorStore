@@ -72,7 +72,7 @@ public class Interact : MonoBehaviour
         else if (currentInteractable is Box box)
         {
             //Open Box and check for contents
-            Debug.Log("Found a box, something should happen.");
+            //Debug.Log("Found a box, something should happen.");
             detectedInteractables.Remove(box.gameObject);
             gameManager.OpenBox(box);
         }

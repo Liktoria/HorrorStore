@@ -6,7 +6,7 @@ public class LightManager : MonoBehaviour
 {
     [SerializeField] private Room room;
     private Light light;
-    private Material lightMat;
+    [SerializeField] private Material lightMat;
     private GameManager gameManager;
     private bool lightIsOn;
 
@@ -16,14 +16,15 @@ public class LightManager : MonoBehaviour
     void Start()
     {
         light = GetComponentInChildren<Light>();
-        lightMat = GetComponentInChildren<Renderer>().material;
+        GetComponentInChildren<Renderer>().material = lightMat;
         gameManager = GameManager.gameManager;
         gameManager.LightSwitched += ToggleLight;
+        ToggleLight(false, room);
     }
 
     private void ToggleLight(bool lightOn, Room currentRoom)
     {
-        if (currentRoom == room)
+        if (currentRoom == room && room != Room.MAINTENANCE_ROOM)
         {
             lightIsOn = lightOn;
             if (lightOn)
@@ -40,14 +41,7 @@ public class LightManager : MonoBehaviour
                 //RenderSettings.ambientIntensity = 0.5f;
                 //RenderSettings.reflectionIntensity = 0.2f;
             }
-        }
-        //else if (currentRoom == Room.MAINTENANCE_ROOM)
-        //{
-        //    StartCoroutine(LightFlicker());
-        //    lightMat.EnableKeyword("_EMISSION");
-        //    //RenderSettings.ambientIntensity = 1.5f;
-        //    //RenderSettings.reflectionIntensity = 0.5f;            
-        //}
+        }        
     }
 
     IEnumerator LightFlicker()
