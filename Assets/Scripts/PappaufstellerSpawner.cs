@@ -39,7 +39,10 @@ public class PappaufstellerSpawner : MonoBehaviour
     {
         float currentTime = Time.realtimeSinceStartup;
         float timeToSpawn = nextTimeToSpawn;
-        if ((currentTime - timeToSpawn) > lastTime && !lightIsOn && DestinationOk(spawnPoint.position))
+        Vector3 sp = spawnPoint.position;
+        sp.y = 1.0f;
+        Debug.Log(DestinationOk(sp) + " " + !lightIsOn + " " + ((currentTime - timeToSpawn) > lastTime) + " " + timeToSpawn);
+        if ((currentTime - timeToSpawn) > lastTime && !lightIsOn && DestinationOk(sp))
         {
             lastTime = currentTime;
             Quaternion rotation = spawnPoint.parent.transform.rotation;
