@@ -29,14 +29,7 @@ public class PostProcessingRuntimeEffects : MonoBehaviour
 
     void Update()
     {
-        //lightswitch testing
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            if(lightIsOn)
-                gameManager.SwitchLight(false);
-            else
-                gameManager.SwitchLight(true);
-        }
+
     }
 
     private void ToggleLight(bool lightOn, Room currentRoom)
